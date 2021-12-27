@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'InspectorGeneralExpandItal';
+    src: url('../assets/fonts/InspectorGeneralExpandItal-JRpyn.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+html,body {
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+    background-color: #57D4D2;
+    overflow: hidden;
+    font-family: 'InspectorGeneralExpandItal' , sans-serif;
+    color: white;
+}
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    height: -webkit-fill-available;
+}
+a{
+    text-decoration: none;
+}
+:visited{
+    color: white;
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    border: 5px white solid;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-title {
+    font-size: 108px;
+}
+.index-subtitle {
+    font-size: 80px;
+}
+.start-button{
+    position: relative;
+    display: block;
+    font-size: 65px;
+    padding: 5px 90px 20px;
+    margin-top: 50px;
+    border: 5px white solid;
+    border-radius: 100px;
+}
+
