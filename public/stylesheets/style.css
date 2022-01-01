@@ -63,9 +63,7 @@ a{
  	overflow: hidden;
 }
 
-
 /*tutorial*/
-
 .tutorial-wrapper{
 	padding: 30px;
 	height: 85vh;
@@ -130,7 +128,7 @@ a{
     top: 20px;
     right: 20px;
 }
-
-
-
-
+.p5Canvas {
+    position: absolute;
+    z-index: -1;
+}
