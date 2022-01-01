@@ -50,10 +50,71 @@ a{
     display: block;
     font-size: 65px;
     padding: 5px 90px 20px;
-    margin-top: 50px;
-    border: 5px white solid;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #f8bc18;
+    border: 5px rgb(255, 255, 255) solid;
     border-radius: 100px;
+}
 
+.start-button:hover{
+    transform: scale(1.15);
+    transition: all 0.3s;
+ 	overflow: hidden;
+}
+
+
+/*tutorial*/
+
+.tutorial-wrapper{
+	padding: 30px;
+	height: 85vh;
+    width:100%;
+}
+
+.tutorial-col-1{
+	height: 10%;
+	width:100%;
+	box-sizing: border-box;
+	justify-content: top;
+    align-items:  left;
+	padding: 0 8px;
+}
+
+.tutorial-col-2{
+	height: 70%;
+	width:100%;
+	box-sizing: border-box;
+    border: 5px white solid;
+	justify-content: top;
+    align-items:  left;
+	padding: 0 8px;
+}
+
+.tutorial-col-3{
+	height: 10%;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 80%;
+}
+
+.tutorial-button{
+    position: relative;
+    display: block;
+    font-size: 50px;
+    padding: 5% 23% 7%;
+    justify-content: center;
+    align-items:  center;
+    margin-top: 18px;
+    background-color: #f8bc18;
+    border: 5px rgb(255, 255, 255) solid;
+    border-radius: 100px;
+}
+
+.tutorial-button:hover{
+    transform: scale(1.15);
+    transition: all 0.3s;
+ 	overflow: hidden;
 }
 
 /*fish*/
@@ -69,3 +130,7 @@ a{
     top: 20px;
     right: 20px;
 }
+
+
+
+
