@@ -7,18 +7,27 @@ let wrapper=document.getElementById('wrapper');
 let boat;
 
 function preload() {
-    boat = createSprite(100, 200);
-    boat.addImage('boat', loadImage('images/plane.jpg'));
+    boat = createSprite(100, 130);
+    boat.addImage('boat', loadImage('images/boat.png'));
+    boat.scale=0.2;
 
 }
 
 function setup() {
-    
-    createCanvas(wrapper.clientWidth, 600);
+    createCanvas(wrapper.clientWidth, wrapper.clientHeight);
 }
 
 function draw() {
-    
+    background(87, 212, 210);
+    let sea = new Rectangle();
+    sea.x = 0;
+    sea.y = 320;
+    sea.height=wrapper.clientHeight/1.6;
+    sea.width=wrapper.clientWidth*2;
+    sea.color = '#21173A';
+    sea.show();
+
+    //boat
     if (keyIsDown(LEFT_ARROW)){ // left
         boat.setVelocity(-3, 0);
     } else if (keyIsDown(RIGHT_ARROW)){
