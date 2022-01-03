@@ -7,7 +7,7 @@ let wrapper=document.getElementById('wrapper');
 let boat;
 
 function preload() {
-    boat = createSprite(100, 130);
+    boat = createSprite(100, 100);
     boat.addImage('boat', loadImage('images/boat.png'));
     boat.scale=0.2;
 
