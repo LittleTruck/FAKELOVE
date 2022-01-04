@@ -265,3 +265,101 @@ a{
     border-radius: 100px;
     visibility: hidden;
 }
+
+/*魚圖片*/
+#fish{
+    position: relative;
+    visibility: hidden;
+}
+
+#fish.active{
+    visibility: visible
+}
+
+#fish img{
+    max-width: 90px;
+}
+
+/*魚圖片點擊彈窗*/
+#fish .fish1-button{
+    cursor: pointer;
+}
+
+#popup-fishInfo{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 500;
+    background: rgb(103,63,214,0.8);
+    border: 5px rgb(255, 255, 255) solid;
+    width: 450px;
+    padding: 80px 50px;
+    box-shadow: 0 15px 30px rgb(0,0,0,0.8);
+    transition: 0.5s;
+    border-radius: 50px;
+    visibility: hidden;
+}
+
+#popup-fishInfo.active{
+    visibility: visible;
+    top: 50%;
+}
+
+#popup-fishInfo .content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#popup-fishInfo .fishInfo-row2{
+    padding-left: 70px;
+    padding-bottom: 20px;
+}
+
+#popup-fishInfo .fishInfo-row3{
+    padding-top: 30px;
+    padding-left: 50px;
+
+}
+
+
+#fish .fishInfo-picture{
+    max-width: 150px;
+}
+
+
+#popup-fishInfo .button-choose{
+    position: relative;
+    display:inline-flex;
+    font-size: 20px;
+    padding: 15px 70px;
+    margin-bottom: 10px;
+    background-color: #D965EC;
+    border: 5px rgb(255, 255, 255) solid;
+    border-radius: 50px;
+}
+
+#popup-fishInfo .button-choose:hover{
+    transform: scale(1.1);
+    transition: all 0.3s;
+ 	overflow: hidden;
+}
+
+#popup-fishInfo .button-notChoose{
+    position: relative;
+    display:inline-flex;
+    font-size: 20px;
+    padding: 15px 60px;
+    margin-bottom: 10px;
+    background-color: #FF40B4;
+    border: 5px rgb(255, 255, 255) solid;
+    border-radius: 50px;
+}
+
+#popup-fishInfo .button-notChoose:hover{
+    transform: scale(1.1);
+    transition: all 0.3s;
+ 	overflow: hidden;
+}
