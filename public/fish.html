@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Fish</title>
@@ -8,16 +9,47 @@
     <script src="javascripts/shape5.js"></script>
     <script src="javascripts/p5.play.js"></script>
 </head>
+
 <body>
 
-<div class="wrapper" id="wrapper">
-    <div class="fish-point">point&ensp;<span id="point"></span> </div>
-    <div class="fish-day">day&ensp;<span id="day"></span> </div>
-    <canvas id="defaultCanvas0" class="p5Canvas"></canvas>
-    <div>
-        <a class="start-button" style="vertical-align: middle;" href="/end.html">END >>></a>
+    <div class="wrapper" id="wrapper">
+        <div class="fish-point">point&ensp;<span id="point"></span> </div>
+        <div class="fish-day">day&ensp;<span id="day"></span> </div>
+        <canvas id="defaultCanvas0" class="p5Canvas"></canvas>
+        <div>
+            <!--彈出視窗1（選魚餌）-->
+            <a class="start-fish-button" onclick="popupToggle();btnClickClose();" id="start-fish-button">Choose bait</a>
+            <div id="popup-chooseBait">
+                <div class="content">
+                    <div class="popup-title1">
+                        <h1>請選擇適合的魚餌</h1>
+                    </div>
+                    <div class="baitrow">
+                        <a class="love-button" onclick="popupToggle();setBaitToLove();"><img class="love" src="images/chooseBait/love.png"></a>
+                        <a class="money-button" onclick="popupToggle();setBaitToMoney();"><img class="money" src="images/chooseBait/money.png"> </a>
+                        <a class="sex-button" onclick="popupToggle();setBaitToSex();"><img class="sex" src="images/chooseBait/sex.png"></a>
+                    </div>
+
+                    <div class="bait-text">
+                        <img class="love-text" src="images/chooseBait/lovetext.png">
+                        <img class="money-text" src="images/chooseBait/moneytext.png">
+                        <img class="sex-text" src="images/chooseBait/sextext.png">
+                    </div>
+                </div>
+            </div>
+
+            <!--魚-->
+
+
+
+
+
+
+            <!--離開按鈕-->
+            <a class="end-button" href="/end.html">END >>></a>
+        </div>
     </div>
-</div>
-<script src="fish.js"></script>
+    <script src="fish.js"></script>
 </body>
+
 </html>

@@ -10,7 +10,6 @@ function preload() {
     boat = createSprite(100, 100);
     boat.addImage('boat', loadImage('images/boat.png'));
     boat.scale=0.2;
-
 }
 
 function setup() {
@@ -36,4 +35,30 @@ function draw() {
         boat.setVelocity(0, 0); 
     }
     drawSprites();
+}
+
+//彈窗功能
+//彈窗功能-彈出與消失
+function popupToggle(){
+    let popup = document.getElementById('popup-chooseBait');
+    popup.classList.toggle('active');
+}
+
+function btnClickClose(){
+    let btn = document.getElementById('start-fish-button');
+    btn.classList.toggle('close');
+}
+
+//彈窗功能-紀錄選擇的魚餌類型
+let currentBait = "";
+
+function setBaitToLove(){
+    currentBait = "love";
+}
+
+function setBaitToMoney(){
+    currentBait = "money";
+}
+function setBaitToSex(){
+    currentBait = "sex";
 }
