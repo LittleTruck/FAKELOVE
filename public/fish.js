@@ -62,3 +62,15 @@ function setBaitToMoney(){
 function setBaitToSex(){
     currentBait = "sex";
 }
+
+//讓hidden的魚圖片透過點擊顯示
+function showFish(){
+    let fish =document.getElementById('fish');
+    fish.classList.toggle('active');
+}
+
+//點擊魚圖片顯示資訊
+function showFishInfo(){
+    let fishInfo =document.getElementById('popup-fishInfo');
+    fishInfo.classList.toggle('active');
+}
