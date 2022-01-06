@@ -8,74 +8,74 @@
     <script src="javascripts/p5.min.js"></script>
     <script src="javascripts/shape5.js"></script>
     <script src="javascripts/p5.play.js"></script>
+    <script src="javascripts/pixi.min.js"></script>
 </head>
 
 <body>
 
-<div class="wrapper" id="wrapper">
-    <div class="fish-point">point&ensp;<span id="point"></span></div>
-    <div class="fish-day">day&ensp;<span id="day"></span></div>
-    <canvas class="p5Canvas" id="defaultCanvas0"></canvas>
-    <div>
-        <!--彈出視窗1（選魚餌）-->
-        <a class="start-fish-button" id="start-fish-button" onclick="popupToggle();btnClickClose();">Choose bait</a>
-        <div id="popup-chooseBait">
-            <div class="content">
-                <div class="popup-title1">
-                    <h1>請選擇適合的魚餌</h1>
-                </div>
-                <div class="baitrow">
-                    <a class="love-button" onclick="popupToggle();setBaitToLove();showFish();">
-                        <img class="love" src="images/chooseBait/love.png"></a>
-                    <a class="money-button" onclick="popupToggle();setBaitToMoney();showFish();">
-                        <img class="money" src="images/chooseBait/money.png">
-                    </a>
-                    <a class="sex-button" onclick="popupToggle();setBaitToSex();showFish();">
-                        <img class="sex" src="images/chooseBait/sex.png"></a>
-                </div>
-
-                <div class="bait-text">
-                    <img class="love-text" src="images/chooseBait/lovetext.png">
-                    <img class="money-text" src="images/chooseBait/moneytext.png">
-                    <img class="sex-text" src="images/chooseBait/sextext.png">
-                </div>
-            </div>
-        </div>
-
-        <!--魚-->
-        <div id="fish">
-            <a class="fish1-button" onclick="showFishInfo(true);"><img class="fish1" src="images/fish/1.png"></a>
-
-            <div id="popup-fishInfo">
+    <div class="wrapper" id="wrapper">
+        <div class="fish-point">point&ensp;<span id="point"></span> </div>
+        <div class="fish-day">day&ensp;<span id="day"></span> </div>
+        <canvas id="defaultCanvas0" class="p5Canvas"></canvas>
+        <div>
+            <!--彈出視窗1（選魚餌）-->
+            <a class="start-fish-button" onclick="popupToggle();btnClickClose();" id="start-fish-button">Choose bait</a>
+            <div id="popup-chooseBait">
                 <div class="content">
-
-                    <div class="fishInfo-row1">
-                        <div class="fishInfo-row1-col1">
-                            <img class="fishInfo-picture" src="images/fishInfo/man1.png">
-                            <h3 style="padding-left: 50px;">陳哲宇</h3>
-                        </div>
+                    <div class="popup-title1">
+                        <h1>請選擇適合的魚餌</h1>
+                    </div>
+                    <div class="baitrow">
+                        <a class="love-button" onclick="popupToggle();setBaitToLove();showFish();"><img class="love"
+                                src="images/chooseBait/love.png"></a>
+                        <a class="money-button" onclick="popupToggle();setBaitToMoney();showFish();"><img class="money"
+                                src="images/chooseBait/money.png"> </a>
+                        <a class="sex-button" onclick="popupToggle();setBaitToSex();showFish();"><img class="sex"
+                                src="images/chooseBait/sex.png"></a>
                     </div>
 
-                    <div class="fishInfo-row2">
-                        <h4>性別：男</h4>
-                        <h4>年齡：20</h4>
-                        <h4>職業：大二學生</h4>
-                        <h4>感情狀況：<br>單身，天天做折一夜暴富的夢</h4>
+                    <div class="bait-text">
+                        <img class="love-text" src="images/chooseBait/lovetext.png">
+                        <img class="money-text" src="images/chooseBait/moneytext.png">
+                        <img class="sex-text" src="images/chooseBait/sextext.png">
                     </div>
-
-                </div>
-                <div class="fishInfo-row3">
-                    <a class="button-choose">釣</a>
-                    <a class="button-notChoose" onclick="showFishInfo(false);">不釣</a>
                 </div>
             </div>
-        </div>
 
-        <!--離開按鈕-->
-        <a class="end-button" href="/end.html">END >>></a>
+            <!--魚-->
+            <div id="fish">
+                <a class="fish1-button" onclick="showFishInfo();"><img class="fish1" src="images/fish/1.png"></a>
+
+                <div id="popup-fishInfo">
+                    <div class="content">
+
+                        <div class="fishInfo-row1">
+                            <div class="fishInfo-row1-col1">
+                                <img class="fishInfo-picture" src="images/fishInfo/man1.png">
+                                <h3 style="padding-left: 50px;">陳哲宇</h3>
+                            </div>
+                        </div>
+
+                        <div class="fishInfo-row2">
+                            <h4>性別：男</h4>
+                            <h4>年齡：20</h4>
+                            <h4>職業：大二學生</h4>
+                            <h4>感情狀況：<br>單身，天天做折一夜暴富的夢</h4>
+                        </div>
+
+                    </div>
+                    <div class="fishInfo-row3">
+                        <a class="button-choose">釣</a>
+                        <a class="button-notChoose">不釣</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--離開按鈕-->
+            <a class="end-button" href="/end.html">END >>></a>
+        </div>
     </div>
-</div>
-<script src="fish.js"></script>
+    <script src="fish.js"></script>
 </body>
 
 </html>
