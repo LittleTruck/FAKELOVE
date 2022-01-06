@@ -5,11 +5,26 @@ document.getElementById('day').textContent = day;
 
 let wrapper = document.getElementById('wrapper');
 let boat;
+let fishes = [];
 
 function preload() {
     boat = createSprite(100, 100);
     boat.addImage('boat', loadImage('images/boat.png'));
     boat.scale = 0.2;
+
+    for (var i = 1; i < 39; i++) {
+        // x: 100~2800, y: 250~1200
+        fishes[i] = createSprite(getRandom(100, 2800), getRandom(250, 1200));
+        console.log(Math.random() >= 0.5 ? 1 : -1);
+        const dir = Math.random() >= 0.5 ? 1 : -1;
+        fishes[i].mirrorX(dir);
+
+        var velocity = dir == 1 ? getRandom(-1, -3) : getRandom(1, 3);
+        fishes[i].setVelocity(velocity, 0);
+
+        fishes[i].scale = 0.2;
+        fishes[i].addImage(loadImage('images/fish/' + i + '.png'));
+    }
 }
 
 function setup() {
@@ -74,4 +89,8 @@ function showFish() {
 function showFishInfo(show) {
     let fishInfo = document.getElementById('popup-fishInfo');
     show ? fishInfo.classList.toggle('active') : fishInfo.classList.remove('active');
+}
+
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
