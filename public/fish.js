@@ -150,3 +150,7 @@ function showFishInfo() {
     let fishInfo = document.getElementById('popup-fishInfo');
     fishInfo.classList.toggle('active');
 }
+
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
