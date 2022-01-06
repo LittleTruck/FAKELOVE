@@ -43,7 +43,7 @@
 
             <!--魚-->
             <div id="fish">
-                <a class="fish1-button" onclick="showFishInfo();"><img class="fish1" src="images/fish/fish1.png"></a>
+                <a class="fish1-button" onclick="showFishInfo(true);"><img class="fish1" src="images/fish/1.png"></a>
 
                 <div id="popup-fishInfo">
                     <div class="content">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="fishInfo-row3">
                         <a class="button-choose">釣</a>
-                        <a class="button-notChoose">不釣</a>
+                        <a class="button-notChoose" onclick="showFishInfo(false);">不釣</a>
                     </div>
                 </div>
             </div>
