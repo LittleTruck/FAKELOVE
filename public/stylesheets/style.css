@@ -4,13 +4,18 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'GenSenRounded';
+    src: url('../assets/fonts/GenSenRounded-M.ttc');
+}
+
 html,body {
     margin: 0;
     padding: 0;
 }
 html{
     height: 100%;
-    background-color: #57D4D2;
+    background-color: #FF55B1;
     overflow: hidden;
     font-family: 'InspectorGeneralExpandItal' , sans-serif;
     color: white;
@@ -20,8 +25,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    padding: 3%;
     height: -webkit-fill-available;
+    flex-wrap: wrap;
 }
 a{
     text-decoration: none;
@@ -63,48 +69,93 @@ a{
  	overflow: hidden;
 }
 
-/*tutorial*/
+/* 說明手冊 */
 .tutorial-wrapper{
-	padding: 30px;
-	height: 85vh;
+    display: flex;
+    width: 80%;
+    align-items: flex-start;
+    position: relative;
+}
+.tutorial-col-2 {
+    font-family: 'GenSenRounded';
+	box-sizing: border-box;
+    align-items:  center;
+    margin: auto;
+    font-size: 38px;
+    text-align:center;
+}
+.tutorial-title{
+    font-family: 'GenSenRounded';
+	box-sizing: border-box;
+    align-items:  center;
+    margin: auto;
+    font-size: 38px;
+    text-align:center;
+    color:#673FD6;
+    width:-webkit-fill-available;
+    font-weight: bold;
+    padding-top: 30px;
+}
+.tutorial-title2{
+    font-family: 'GenSenRounded';
+	box-sizing: border-box;
+    font-size: 60px;
+    text-align:center;
+    margin-top: 10px;
+    color:#d90428;
     width:100%;
+    font-weight: bold;
+    padding-top: 30px;
+
 }
 
-.tutorial-col-1{
-	height: 10%;
-	width:100%;
-	box-sizing: border-box;
-	justify-content: top;
-    align-items:  left;
-	padding: 0 8px;
+.tutorial2-wrapper{
+    display: flex;
+    background-color: white;
+    width: 95%;
+    height: 100%;
+    align-items: flex-start;
+    position: relative;
+    border: #673FD6 5px solid;
+    border-radius: 50px;
 }
+.tutorial2-wrappe-1{
+    display: flex;
+    width: 50%;
+    align-items: flex-start;
+    /* background-color: gray; */
+    padding-top:40px;
+    flex-wrap: wrap;
 
-.tutorial-col-2{
-	height: 70%;
-	width:100%;
-	box-sizing: border-box;
-    border: 5px white solid;
-	justify-content: top;
-    align-items:  left;
-	padding: 0 8px;
+}
+.tutorial7-wrappe-1{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left:3%
+}
+.tutorial7-wrappe-1>img{
+    position:relative;
 }
 
 .tutorial-col-3{
 	height: 10%;
 	width: 100%;
 	box-sizing: border-box;
-	padding-left: 80%;
+	padding-left:70%;
+    padding-right:15%
 }
 
 .tutorial-button{
     position: relative;
-    display: block;
-    font-size: 50px;
-    padding: 5% 23% 7%;
+    /* display: block; */
+    font-size: 45px;
+    padding: 3% 20% 7%;
     justify-content: center;
     align-items:  center;
     margin-top: 18px;
-    background-color: #f8bc18;
+    background-color: #5E17EB;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 100px;
 }
