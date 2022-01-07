@@ -9,11 +9,15 @@ let sex;
 let Bait;
 let fishes = [];
 var mouseClickX, mouseClickY;
+let fishing;
 
 function preload() {
     boat = createSprite(100, 120);
-    boat.addImage('boat', loadImage('images/boat.png'));
+    boat.addImage('boat', loadImage('images/boat/boat.png'));
     boat.scale = 0.2;
+    fishing = loadAnimation('images/boat/boatv2_00000.png','images/boat/boatv2_00010.png','images/boat/boatv2_00020.png',
+    'images/boat/boatv2_00030.png','images/boat/boatv2_00040.png','images/boat/boatv2_00050.png','images/boat/boatv2_00060.png');
+
     Bait = createSprite(230, 160);
     Bait.shapeColor = '#ffffff00';
 
@@ -59,10 +63,13 @@ function draw() {
     //boat
     if (keyIsDown(LEFT_ARROW)) { // left
         boat.setVelocity(-3, 0);
+        Bait.setVelocity(-3,0);
     } else if (keyIsDown(RIGHT_ARROW)) {
         boat.setVelocity(3, 0);
+        Bait.setVelocity(3, 0);
     } else { // no key press ‐> stand still
         boat.setVelocity(0, 0);
+        Bait.setVelocity(0, 0);
     }
 
     //line
@@ -120,22 +127,29 @@ function mouseClicked() {
 
 //bait_move
 function bait_move() {
+    let s;
     if (keyIsDown(LEFT_ARROW)) { // left
-        //Bait.setVelocity(-3, 0);
         Bait.position.x = boat.position.x + 130;
         Bait.position.y = boat.position.y + 40;
 
     } else if (keyIsDown(RIGHT_ARROW)) {
-        //Bait.setVelocity(3, 0);
         Bait.position.x = boat.position.x + 130;
         Bait.position.y = boat.position.y + 40;
 
     } else if (keyIsDown(DOWN_ARROW)) {
+        s = createSprite(boat.position.x+57, boat.position.y+3.5);
+        s.addAnimation('fishing',fishing);
+        s.scale=0.2;
+        s.life=10;
         Bait.position.y = Bait.position.y + 20;
         stroke(255);
         strokeWeight(3);
         line(Bait.position.x - 20, boat.position.y - 80, Bait.position.x, Bait.position.y);
     } else if (keyIsDown(UP_ARROW)) {
+        s = createSprite(boat.position.x+57, boat.position.y+3.5);
+        s.addAnimation('fishing',fishing);
+        s.scale=0.2;
+        s.life=10;
         Bait.position.y = Bait.position.y - 20;
         stroke(255);
         strokeWeight(3);
