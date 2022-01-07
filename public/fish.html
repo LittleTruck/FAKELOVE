@@ -14,7 +14,7 @@
 <body>
 
     <div class="wrapper" id="wrapper">
-        <div class="fish-point">point&ensp;<span id="point"></span> </div>
+        <div class="fish-point">money&ensp;<span id="point"></span> </div>
         <div class="fish-day">day&ensp;<span id="day"></span> </div>
         <canvas id="defaultCanvas0" class="p5Canvas"></canvas>
         <div>
@@ -49,7 +49,7 @@
                     <div class="content">
                         <div class="fishInfo-row1">
                             <div class="fishInfo-row1-col1">
-                                <img id="fish-img" class="fishInfo-picture" src="images/fishInfo/man1.png">
+                                <img id="fish-img" class="fishInfo-picture" src="images/fishInfo/fish (14).png">
                                 <h3 id="fish-name" style="padding-left: 50px;">陳哲宇</h3>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
 
                     <div class="chat-row1">
                         <div class="chat-row1-col1">
-                            <img class="chat-picture" src="images/fishInfo/fish (1).png" style="width:300px;height:200px;">
+                            <img class="chat-picture" src="images/fishInfo/fish (1).png"; style="max-width:90px";>
                         </div>
                     </div>
 
@@ -94,13 +94,13 @@
                     </div>
 
                     <div class="chat-row4">
-                        <a class="button-choose1" onclick="btnChatClickClose();">
+                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">
                             <p>投資就那你跟著我好了</p>
                         </a>
-                        <a class="button-choose2" onclick="btnChatClickClose();">
+                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">
                             <p>我也不知道怎麼投，好苦惱</p>
                         </a>
-                        <a class="button-choose3" onclick="btnChatClickClose();">
+                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer();">
                             <p>我從小就在國外讀書，讀的是經濟學，</br>如果你有什麼理財或者投資的問題都可以來問我。</p>
                         </a>
                     </div>
@@ -113,7 +113,7 @@
 
                     <div class="chat-row1">
                         <div class="chat-row1-col1">
-                            <img class="chat-picture" src="images/fishInfo/fish (2).png" style="width:300px;height:200px;">
+                            <img class="chat-picture" src="images/fishInfo/fish (2).png"; style="max-width:90px";>
                         </div>
                     </div>
 
@@ -132,13 +132,13 @@
                     </div>
 
                     <div class="chat-row4">
-                        <a class="button-choose1" onclick="btnChatClickClose();">
+                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">
                             <p>我也是，快累死了</p>
                         </a>
-                        <a class="button-choose2" onclick="btnChatClickClose();">
+                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">
                             <p>你要不要和我一起投資，可以掙錢</p>
                         </a>
-                        <a class="button-choose3" onclick="btnChatClickClose();">
+                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer()">
                             <p>我也是，不僅要讀書還要打工，特別累。</br>但是我看我朋友最近在投資，感覺掙很多</p>
                         </a>
                     </div>
@@ -146,7 +146,7 @@
             </div>
 
             <!--離開按鈕-->
-            <a class="end-button" href="/end.html">END >>></a>
+            <a class="end-button" id="end-button" href="/end.html">END >>></a>
         </div>
     </div>
 </body>
