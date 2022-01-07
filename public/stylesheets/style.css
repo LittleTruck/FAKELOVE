@@ -304,19 +304,6 @@ a{
  	overflow: hidden;
 }
 
-
-.end-button{
-    position: relative;
-    display: block;
-    font-size: 65px;
-    padding: 15px 90px;
-    margin-bottom: 10px;
-    background-color: #f8bc18;
-    border: 5px rgb(255, 255, 255) solid;
-    border-radius: 100px;
-    visibility: hidden;
-}
-
 /*魚圖片*/
 #fish{
     position: relative;
@@ -543,4 +530,21 @@ padding-top: 15%;
     transform: scale(1.1);
     transition: all 0.3s;
  	overflow: hidden;
+}
+
+/*結算按鈕*/
+.end-button{
+    position: relative;
+    display: block;
+    font-size: 65px;
+    padding: 15px 90px;
+    margin-bottom: 10px;
+    background-color: #f8bc18;
+    border: 5px rgb(255, 255, 255) solid;
+    border-radius: 100px;
+    visibility: hidden;
+}
+
+.end-button.active{
+    visibility: visible;
 }
