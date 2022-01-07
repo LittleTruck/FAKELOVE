@@ -1,5 +1,5 @@
 let point = 0;
-let day = 30;
+let day = 15;
 
 let wrapper;
 let boat;
@@ -240,10 +240,13 @@ function btnChatClickClose() {
 //完成對話選項後「加金錢」與「扣時間」
 function dayPass(){
     day--;
+    document.getElementById('day').textContent = day;
 }
 
 function studentRightAnswer(){
     point = point+100000;
+    document.getElementById('point').textContent = point;
+
 }
 
 
