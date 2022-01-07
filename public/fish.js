@@ -9,6 +9,8 @@ let sex;
 let Bait;
 let fishes = [];
 var mouseClickX, mouseClickY;
+let i = -1;
+let chat = Math.floor(Math.random()*2);
 
 function preload() {
     boat = createSprite(200, 120);
@@ -98,10 +100,10 @@ function draw() {
 
     // fish
     for (let i = 1; i < fishes.length; i++) {
-
         var d = dist(mouseClickX, mouseClickY, fishes[i].position.x, fishes[i].position.y);
-        if (d < 15 ) {
-            console.log(mouseClickX);
+        if (d < 24) {
+            mouseClickX = false;
+            mouseClickY = false;
             showFishInfo(true, i);
         }
 
@@ -112,9 +114,6 @@ function draw() {
             fishes[i].position.x = -100;
     }
 
-
-    mouseClickX = false;
-    mouseClickY = false;
     drawSprites();
 }
 
@@ -128,18 +127,11 @@ function Fish(x, y, i) {
 
 // fish
 function mouseClicked() {
-    let fishInfo = document.getElementById('popup-fishInfo');
-    if (fishInfo.classList.value == 'active') {
-    }else{
-        console.log(mouseClickX);
-        mouseClickX = mouseX;
-        mouseClickY = mouseY;
-    }
+    mouseClickX = mouseX;
+    mouseClickY = mouseY;
 }
 
 //bait_move
-let i = -1;
-
 function bait_move() {
 
     if (keyIsDown(LEFT_ARROW)) { // left
@@ -157,6 +149,12 @@ function bait_move() {
         stroke(255);
         strokeWeight(3);
         line(Bait.position.x - 20, boat.position.y - 75, Bait.position.x, Bait.position.y);
+        for (let i = 1; i < fishes.length; i++) {
+            if (Bait.overlap(fishes[i])) {
+                popupChatToggle();
+                break;
+            }
+        }
     } else if (keyIsDown(UP_ARROW)) {
         i = (i + 1) % 7;
         boat.changeImage('boat' + i);
@@ -204,18 +202,15 @@ function showFish() {
 
 //點擊魚圖片顯示資訊
 function showFishInfo(show, num) {
-    mouseClickX = false;
-    mouseClickY = false;
     let fishInfo = document.getElementById('popup-fishInfo');
     if (show) {
-        fishInfo.classList.toggle('active');
-        document.getElementById("fish-name").textContent = num;
-        document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
-    } else {
-        mouseClickX = false;
-        mouseClickY = false;
+        if (fishInfo.classList.value != 'active') {
+            fishInfo.classList.toggle('active');
+            document.getElementById("fish-name").textContent = num;
+            document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
+        }
+    } else
         fishInfo.classList.remove('active');
-    }
 }
 
 function getRandom(min, max) {
@@ -224,11 +219,11 @@ function getRandom(min, max) {
 
 //對話視窗開啟與關閉
 function popupChatToggle() {
-    let popupChat = document.getElementById('popup-chat');
+    let popupChat = document.getElementById('popup-chat'+ chat );
     popupChat.classList.toggle('active');
 }
 
 function btnChatClickClose() {
-    let btn = document.getElementById('popup-chat');
+    let btn = document.getElementById('popup-chat'+ chat);
     btn.classList.toggle('close');
 }

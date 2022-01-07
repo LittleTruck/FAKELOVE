@@ -420,7 +420,7 @@ a{
     cursor: pointer;
 }
 
-#popup-chat{
+.popup-chat{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -436,16 +436,16 @@ a{
     visibility: hidden;
 }
 
-#popup-chat.active{
+.popup-chat.active{
     visibility: visible;
     top: 50%;
 }
 
-#popup-chat.close{
+.popup-chat.close{
     visibility: hidden;
 }
 
-#popup-chat .content{
+.popup-chat .content{
     position: relative;
     width: 100%;
     display: flex;
@@ -453,16 +453,16 @@ a{
 }
 
 
-#popup-chat .chat-row1{
+.popup-chat .chat-row1{
 
     padding-bottom: 70px;
 }
-#popup-chat .chat-row2{
+.popup-chat .chat-row2{
     padding-left: 20px;
     padding-bottom: 70px;
 }
 
-#popup-chat .chat-row2 .chatBar{
+.popup-chat .chat-row2 .chatBar{
     position: relative;
     display:inline-flex;
     font-size: 15px;
@@ -473,25 +473,25 @@ a{
     border-radius: 50px;
 }
 
-#popup-chat .chat-row3{
+.popup-chat .chat-row3{
     padding-left: 50px;
 }
 
-#popup-chat .chat-row3 .chooseAns{
+.popup-chat .chat-row3 .chooseAns{
 padding-top: 15%;
 }
 
-#popup-chat .chat-row4{
+.popup-chat .chat-row4{
     padding-left: 60px;
 }
 
 
-#popup-chat .chat-picture{
+.popup-chat .chat-picture{
     max-width: 100px;
 }
 
 
-#popup-chat .button-choose1{
+.popup-chat .button-choose1{
     position: relative;
     display:block;
     font-size: 8px;
@@ -503,13 +503,13 @@ padding-top: 15%;
     align-items: center;
 }
 
-#popup-chat .button-choose1:hover{
+.popup-chat .button-choose1:hover{
     transform: scale(1.1);
     transition: all 0.3s;
  	overflow: hidden;
 }
 
-#popup-chat .button-choose2{
+.popup-chat .button-choose2{
     position: relative;
     display:block;
     font-size: 8px;
@@ -521,13 +521,13 @@ padding-top: 15%;
     align-items: center;
 }
 
-#popup-chat .button-choose2:hover{
+.popup-chat .button-choose2:hover{
     transform: scale(1.1);
     transition: all 0.3s;
  	overflow: hidden;
 }
 
-#popup-chat .button-choose3{
+.popup-chat .button-choose3{
     position: relative;
     display:block;
     font-size: 8px;
@@ -539,7 +539,7 @@ padding-top: 15%;
     align-items: center;
 }
 
-#popup-chat .button-choose3:hover{
+.popup-chat .button-choose3:hover{
     transform: scale(1.1);
     transition: all 0.3s;
  	overflow: hidden;

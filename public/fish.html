@@ -62,20 +62,20 @@
                         </div>
                     </div>
                    <div class="fishInfo-row3">
-                        <button class="button-choose" onclick="showFishInfo(false);popupChatToggle()" ;>釣</button>
-                        <button class="button-notChoose" onclick="showFishInfo(false);">不釣</button>
+                        <a class="button-choose" onclick="showFishInfo(false);popupChatToggle()" ;>釣</a>
+                        <a class="button-notChoose" onclick="showFishInfo(false);">不釣</a>
                     </div>
                 </div>
             </div>
 
-            <!--對話彈窗-->
-            <div id="popup-chat">
+            <!--對話彈窗-學生-->
+            <div id="popup-chat0" class='popup-chat'>
                 <h1 style="padding-left: 41%; padding-bottom:40px;">林雲凱</h1>
                 <div class="content">
 
                     <div class="chat-row1">
                         <div class="chat-row1-col1">
-                            <img class="chat-picture" src="images/fishInfo/man1.png">
+                            <img class="chat-picture" src="images/fishInfo/fish (1).png" style="width:300px;height:200px;">
                         </div>
                     </div>
 
@@ -102,6 +102,44 @@
                         </a>
                         <a class="button-choose3" onclick="btnChatClickClose();">
                             <p>我從小就在國外讀書，讀的是經濟學，</br>如果你有什麼理財或者投資的問題都可以來問我。</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup-chat1" class='popup-chat'>
+                <h1 style="padding-left: 41%; padding-bottom:40px;">張夢琦</h1>
+                <div class="content">
+
+                    <div class="chat-row1">
+                        <div class="chat-row1-col1">
+                            <img class="chat-picture" src="images/fishInfo/fish (2).png" style="width:300px;height:200px;">
+                        </div>
+                    </div>
+
+                    <div class="chat-row2">
+                        <div class="chatBar">
+                            <h5 style="color: black;">我最近在打工，特別忙，還是要還學貸。</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="content">
+                    <div class="chat-row3">
+                        <div class="chat-row1-col2">
+                            <h2 class="chooseAns">請選擇回應</h2>
+                        </div>
+                    </div>
+
+                    <div class="chat-row4">
+                        <a class="button-choose1" onclick="btnChatClickClose();">
+                            <p>我也是，快累死了</p>
+                        </a>
+                        <a class="button-choose2" onclick="btnChatClickClose();">
+                            <p>你要不要和我一起投資，可以掙錢</p>
+                        </a>
+                        <a class="button-choose3" onclick="btnChatClickClose();">
+                            <p>我也是，不僅要讀書還要打工，特別累。</br>但是我看我朋友最近在投資，感覺掙很多</p>
                         </a>
                     </div>
                 </div>
