@@ -21,12 +21,11 @@ function preload() {
     money = loadImage('images/chooseBait/money_hover.png');
     sex = loadImage('images/chooseBait/sex_hover.png');
 
-    for (let i = 1; i < 39; i++) {
-        // x: 100~2800, y: 250~1200
-        Fish(getRandom(100, 2800), getRandom(250, 1200), i);
-
+    // fish
+    for (let i = 1; i < 23; i++) {
+        // x: 100~1350, y: 250~550
+        Fish(getRandom(100, 1350), getRandom(250, 550), i);
     }
-
 }
 
 function setup() {
@@ -35,7 +34,8 @@ function setup() {
     document.getElementById('point').textContent = point;
     document.getElementById('day').textContent = day;
 
-    for (let i = 1; i < 39; i++) {
+    // fish
+    for (let i = 1; i < 23; i++) {
         const dir = Math.random() >= 0.5 ? 1 : -1;
         fishes[i].mirrorX(dir);
 
@@ -85,57 +85,37 @@ function draw() {
         bait_move();
     }
 
+    // fish
     for (let i = 1; i < fishes.length; i++) {
-        // console.log(mouseClickX)
-        // console.log(mouseClickX)
         var d = dist(mouseClickX, mouseClickY, fishes[i].position.x, fishes[i].position.y);
-        if (d < 24)
-            showFishInfo(true);
+        if (d < 24) {
+            mouseClickX = false;
+            mouseClickY = false;
+            showFishInfo(true, i);
+        }
 
+        // fish
         if (fishes[i].position.x < -100)
-            fishes[i].position.x = 3000;
-        else if (fishes[i].position.x > 3000)
+            fishes[i].position.x = 1500;
+        else if (fishes[i].position.x > 1500)
             fishes[i].position.x = -100;
     }
 
     drawSprites();
 }
 
+// fish
 function Fish(x, y, i) {
     fishes[i] = createSprite(x, y);
 
-    fishes[i].scale = 0.2;
+    fishes[i].scale = 0.12;
     fishes[i].addImage(loadImage('images/fish/' + i + '.png'));
-
-    // this.display = function () {
-    //     ellipse(this.x, this.y, 48, 48);
-    // }
-    //
-    // this.mouseClicked = function () {
-    //     var d = dist(mouseX, mouseY, this.x, this.y);
-    //     if (d < 24)
-    //         console.log(mouseX);
-    // }
-    //
-    // this.move = function () {
-    //     this.x = this.x + random(-1, 1);
-    // }
 }
 
+// fish
 function mouseClicked() {
     mouseClickX = mouseX;
     mouseClickY = mouseY;
-    
-
-    // for (let i = 1; i < 39; i++) {
-    //     console.log(mouseX);
-    //     console.log(fishes[i].x);
-    //     var d = dist(mouseX, mouseY, fishes[i].x, fishes[i].y);
-    //     if (d < 24)
-    //         console.log(mouseX);
-    // }
-    // console.log(mouseX);
-    // console.log(mouseY);
 }
 
 //bait_move
@@ -199,9 +179,14 @@ function showFish() {
 }
 
 //點擊魚圖片顯示資訊
-function showFishInfo(show) {
+function showFishInfo(show, num) {
     let fishInfo = document.getElementById('popup-fishInfo');
-    show ? fishInfo.classList.toggle('active') : fishInfo.classList.remove('active');
+    if (show) {
+        fishInfo.classList.toggle('active');
+        document.getElementById("fish-name").textContent = num;
+        document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
+    } else
+        fishInfo.classList.remove('active');
 }
 
 function getRandom(min, max) {
