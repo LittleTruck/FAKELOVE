@@ -8,6 +8,7 @@ let money;
 let sex;
 let Bait;
 let fishes = [];
+var mouseClickX, mouseClickY;
 
 function preload() {
     boat = createSprite(100, 120);
@@ -22,10 +23,8 @@ function preload() {
 
     for (let i = 1; i < 39; i++) {
         // x: 100~2800, y: 250~1200
-        fishes[i] = createSprite(getRandom(100, 2800), getRandom(250, 1200));
+        Fish(getRandom(100, 2800), getRandom(250, 1200), i);
 
-        fishes[i].scale = 0.2;
-        fishes[i].addImage(loadImage('images/fish/' + i + '.png'));
     }
 
 }
@@ -85,15 +84,58 @@ function draw() {
         Bait.scale = 0.08;
         bait_move();
     }
-    
+
     for (let i = 1; i < fishes.length; i++) {
+        // console.log(mouseClickX)
+        // console.log(mouseClickX)
+        var d = dist(mouseClickX, mouseClickY, fishes[i].position.x, fishes[i].position.y);
+        if (d < 24)
+            showFishInfo(true);
+
         if (fishes[i].position.x < -100)
             fishes[i].position.x = 3000;
         else if (fishes[i].position.x > 3000)
             fishes[i].position.x = -100;
     }
-    
+
     drawSprites();
+}
+
+function Fish(x, y, i) {
+    fishes[i] = createSprite(x, y);
+
+    fishes[i].scale = 0.2;
+    fishes[i].addImage(loadImage('images/fish/' + i + '.png'));
+
+    // this.display = function () {
+    //     ellipse(this.x, this.y, 48, 48);
+    // }
+    //
+    // this.mouseClicked = function () {
+    //     var d = dist(mouseX, mouseY, this.x, this.y);
+    //     if (d < 24)
+    //         console.log(mouseX);
+    // }
+    //
+    // this.move = function () {
+    //     this.x = this.x + random(-1, 1);
+    // }
+}
+
+function mouseClicked() {
+    mouseClickX = mouseX;
+    mouseClickY = mouseY;
+    
+
+    // for (let i = 1; i < 39; i++) {
+    //     console.log(mouseX);
+    //     console.log(fishes[i].x);
+    //     var d = dist(mouseX, mouseY, fishes[i].x, fishes[i].y);
+    //     if (d < 24)
+    //         console.log(mouseX);
+    // }
+    // console.log(mouseX);
+    // console.log(mouseY);
 }
 
 //bait_move
