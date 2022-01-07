@@ -9,16 +9,20 @@ let sex;
 let Bait;
 let fishes = [];
 var mouseClickX, mouseClickY;
-let fishing;
 
 function preload() {
-    boat = createSprite(100, 120);
-    boat.addImage('boat', loadImage('images/boat/boat.png'));
+    boat = createSprite(200, 120);
+    boat.addImage('boat', loadImage('images/boat/boatv2_00000.png'));
     boat.scale = 0.2;
-    fishing = loadAnimation('images/boat/boatv2_00000.png','images/boat/boatv2_00010.png','images/boat/boatv2_00020.png',
-    'images/boat/boatv2_00030.png','images/boat/boatv2_00040.png','images/boat/boatv2_00050.png','images/boat/boatv2_00060.png');
+    boat.addImage('boat0', loadImage('images/boat/boatv2_00000.png'));
+    boat.addImage('boat1', loadImage('images/boat/boatv2_00010.png'));
+    boat.addImage('boat2', loadImage('images/boat/boatv2_00020.png'));
+    boat.addImage('boat3', loadImage('images/boat/boatv2_00030.png'));
+    boat.addImage('boat4', loadImage('images/boat/boatv2_00040.png'));
+    boat.addImage('boat5', loadImage('images/boat/boatv2_00050.png'));
+    boat.addImage('boat6', loadImage('images/boat/boatv2_00060.png'));
 
-    Bait = createSprite(230, 160);
+    Bait = createSprite(275, 160);
     Bait.shapeColor = '#ffffff00';
 
     love = loadImage('images/chooseBait/love_hover.png');
@@ -75,7 +79,7 @@ function draw() {
     //line
     stroke(255);
     strokeWeight(3);
-    line(Bait.position.x - 18, boat.position.y - 80, Bait.position.x, Bait.position.y);
+    line(Bait.position.x -20 , boat.position.y - 80, Bait.position.x, Bait.position.y);
 
     //belt
     if (currentBait == "love") {
@@ -127,33 +131,29 @@ function mouseClicked() {
 
 //bait_move
 function bait_move() {
-    let s;
+    
     if (keyIsDown(LEFT_ARROW)) { // left
-        Bait.position.x = boat.position.x + 130;
+        Bait.position.x = boat.position.x + 75;
         Bait.position.y = boat.position.y + 40;
 
     } else if (keyIsDown(RIGHT_ARROW)) {
-        Bait.position.x = boat.position.x + 130;
+        Bait.position.x = boat.position.x + 75;
         Bait.position.y = boat.position.y + 40;
 
     } else if (keyIsDown(DOWN_ARROW)) {
-        s = createSprite(boat.position.x+57, boat.position.y+3.5);
-        s.addAnimation('fishing',fishing);
-        s.scale=0.2;
-        s.life=10;
+        i = (i + 1) % 7;
+        boat.changeImage('boat'+i);
         Bait.position.y = Bait.position.y + 20;
         stroke(255);
         strokeWeight(3);
-        line(Bait.position.x - 20, boat.position.y - 80, Bait.position.x, Bait.position.y);
+        line(Bait.position.x - 20, boat.position.y - 75, Bait.position.x, Bait.position.y);
     } else if (keyIsDown(UP_ARROW)) {
-        s = createSprite(boat.position.x+57, boat.position.y+3.5);
-        s.addAnimation('fishing',fishing);
-        s.scale=0.2;
-        s.life=10;
+        i = (i + 1) % 7;
+        boat.changeImage('boat'+i);
         Bait.position.y = Bait.position.y - 20;
         stroke(255);
         strokeWeight(3);
-        line(Bait.position.x - 20, boat.position.y - 80, Bait.position.x, Bait.position.y);
+        line(Bait.position.x - 20, boat.position.y - 75, Bait.position.x, Bait.position.y);
     } else { // no key press ‐> stand still
         Bait.setVelocity(0, 0);
     }
