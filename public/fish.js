@@ -209,3 +209,14 @@ function showFishInfo(show, num) {
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+//對話視窗開啟與關閉
+function popupChatToggle() {
+    let popupChat = document.getElementById('popup-chat');
+    popupChat.classList.toggle('active');
+}
+
+function btnChatClickClose() {
+    let btn = document.getElementById('popup-chat');
+    btn.classList.toggle('close');
+}
