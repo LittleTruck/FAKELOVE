@@ -157,9 +157,9 @@ function showFish() {
 }
 
 //點擊魚圖片顯示資訊
-function showFishInfo() {
+function showFishInfo(show) {
     let fishInfo = document.getElementById('popup-fishInfo');
-    fishInfo.classList.toggle('active');
+    show ? fishInfo.classList.toggle('active') : fishInfo.classList.remove('active');
 }
 
 function getRandom(min, max) {
