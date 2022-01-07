@@ -249,9 +249,12 @@ function studentRightAnswer(){
 
 //天數到達0時檢查分數並跳出結算按鈕
 
-if(day<=0){
-    function end() {
+let showEndButton = function() {
         let end = document.getElementById('end-button');
         end.classList.toggle('active');
-    }
-}
+};
+
+
+if(day<=0){
+    showEndButton(); 
+};
