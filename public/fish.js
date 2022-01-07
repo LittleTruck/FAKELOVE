@@ -67,7 +67,7 @@ function draw() {
     //boat
     if (keyIsDown(LEFT_ARROW)) { // left
         boat.setVelocity(-3, 0);
-        Bait.setVelocity(-3,0);
+        Bait.setVelocity(-3, 0);
     } else if (keyIsDown(RIGHT_ARROW)) {
         boat.setVelocity(3, 0);
         Bait.setVelocity(3, 0);
@@ -79,7 +79,7 @@ function draw() {
     //line
     stroke(255);
     strokeWeight(3);
-    line(Bait.position.x -20 , boat.position.y - 80, Bait.position.x, Bait.position.y);
+    line(Bait.position.x - 20, boat.position.y - 80, Bait.position.x, Bait.position.y);
 
     //belt
     if (currentBait == "love") {
@@ -98,10 +98,10 @@ function draw() {
 
     // fish
     for (let i = 1; i < fishes.length; i++) {
+
         var d = dist(mouseClickX, mouseClickY, fishes[i].position.x, fishes[i].position.y);
-        if (d < 24) {
-            mouseClickX = false;
-            mouseClickY = false;
+        if (d < 15 ) {
+            console.log(mouseClickX);
             showFishInfo(true, i);
         }
 
@@ -112,6 +112,9 @@ function draw() {
             fishes[i].position.x = -100;
     }
 
+
+    mouseClickX = false;
+    mouseClickY = false;
     drawSprites();
 }
 
@@ -125,14 +128,20 @@ function Fish(x, y, i) {
 
 // fish
 function mouseClicked() {
-    mouseClickX = mouseX;
-    mouseClickY = mouseY;
+    let fishInfo = document.getElementById('popup-fishInfo');
+    if (fishInfo.classList.value == 'active') {
+    }else{
+        console.log(mouseClickX);
+        mouseClickX = mouseX;
+        mouseClickY = mouseY;
+    }
 }
 
 //bait_move
 let i = -1;
+
 function bait_move() {
-    
+
     if (keyIsDown(LEFT_ARROW)) { // left
         Bait.position.x = boat.position.x + 75;
         Bait.position.y = boat.position.y + 40;
@@ -143,14 +152,14 @@ function bait_move() {
 
     } else if (keyIsDown(DOWN_ARROW)) {
         i = (i + 1) % 7;
-        boat.changeImage('boat'+i);
+        boat.changeImage('boat' + i);
         Bait.position.y = Bait.position.y + 20;
         stroke(255);
         strokeWeight(3);
         line(Bait.position.x - 20, boat.position.y - 75, Bait.position.x, Bait.position.y);
     } else if (keyIsDown(UP_ARROW)) {
         i = (i + 1) % 7;
-        boat.changeImage('boat'+i);
+        boat.changeImage('boat' + i);
         Bait.position.y = Bait.position.y - 20;
         stroke(255);
         strokeWeight(3);
@@ -195,15 +204,18 @@ function showFish() {
 
 //點擊魚圖片顯示資訊
 function showFishInfo(show, num) {
+    mouseClickX = false;
+    mouseClickY = false;
     let fishInfo = document.getElementById('popup-fishInfo');
     if (show) {
-        if (fishInfo.classList.value != 'active'){
-            fishInfo.classList.toggle('active');
-            document.getElementById("fish-name").textContent = num;
-            document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
-        }
-    } else
+        fishInfo.classList.toggle('active');
+        document.getElementById("fish-name").textContent = num;
+        document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
+    } else {
+        mouseClickX = false;
+        mouseClickY = false;
         fishInfo.classList.remove('active');
+    }
 }
 
 function getRandom(min, max) {
