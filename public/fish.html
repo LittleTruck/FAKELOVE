@@ -61,9 +61,48 @@
                             <h4 id="fish-status">感情狀況：<br>單身，天天做折一夜暴富的夢</h4>
                         </div>
                     </div>
-                    <div class="fishInfo-row3">
-                        <a class="button-choose">釣</a>
+                   <div class="fishInfo-row3">
+                        <a class="button-choose" onclick="showFishInfo(false);popupChatToggle()" ;>釣</a>
                         <a class="button-notChoose" onclick="showFishInfo(false);">不釣</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--對話彈窗-->
+            <div id="popup-chat">
+                <h1 style="padding-left: 41%; padding-bottom:40px;">林雲凱</h1>
+                <div class="content">
+
+                    <div class="chat-row1">
+                        <div class="chat-row1-col1">
+                            <img class="chat-picture" src="images/fishInfo/man1.png">
+                        </div>
+                    </div>
+
+                    <div class="chat-row2">
+                        <div class="chatBar">
+                            <h5 style="color: black;">我好想投資啊，但是卻無從下手...</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="content">
+                    <div class="chat-row3">
+                        <div class="chat-row1-col2">
+                            <h2 class="chooseAns">請選擇回應</h2>
+                        </div>
+                    </div>
+
+                    <div class="chat-row4">
+                        <a class="button-choose1" onclick="btnChatClickClose();">
+                            <p>投資就那你跟著我好了</p>
+                        </a>
+                        <a class="button-choose2" onclick="btnChatClickClose();">
+                            <p>我也不知道怎麼投，好苦惱</p>
+                        </a>
+                        <a class="button-choose3" onclick="btnChatClickClose();">
+                            <p>我從小就在國外讀書，讀的是經濟學，</br>如果你有什麼理財或者投資的問題都可以來問我。</p>
+                        </a>
                     </div>
                 </div>
             </div>
