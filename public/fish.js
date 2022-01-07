@@ -1,5 +1,5 @@
 let point = 0;
-let day = 30;
+let day = 15;
 
 let wrapper;
 let boat;
@@ -10,7 +10,9 @@ let Bait;
 let fishes = [];
 var mouseClickX, mouseClickY;
 let i = -1;
-let chat = Math.floor(Math.random()*2);
+let chat;
+let count = 0;
+let lastchat;
 
 function preload() {
     boat = createSprite(200, 120);
@@ -101,7 +103,7 @@ function draw() {
     // fish
     for (let i = 1; i < fishes.length; i++) {
         var d = dist(mouseClickX, mouseClickY, fishes[i].position.x, fishes[i].position.y);
-        if (d < 15 ) {
+        if (d < 15) {
             console.log(mouseClickX);
             showFishInfo(true, i);
         }
@@ -130,7 +132,7 @@ function Fish(x, y, i) {
 function mouseClicked() {
     let fishInfo = document.getElementById('popup-fishInfo');
     if (fishInfo.classList.value == 'active') {
-    }else{
+    } else {
         console.log(mouseClickX);
         mouseClickX = mouseX;
         mouseClickY = mouseY;
@@ -157,7 +159,17 @@ function bait_move() {
         line(Bait.position.x - 20, boat.position.y - 75, Bait.position.x, Bait.position.y);
         for (let i = 1; i < fishes.length; i++) {
             if (Bait.overlap(fishes[i])) {
-                popupChatToggle();
+                if (count == 0) {
+                    chat = Math.floor(Math.random() * 2);
+                    if(chat != lastchat){
+                        popupChatToggle();
+                        console.log('釣到'+chat);
+                        lastchat=chat;
+                        count++;
+                        break;
+                    }                   
+                    break;
+                }
                 break;
             }
         }
@@ -228,12 +240,12 @@ function getRandom(min, max) {
 
 //對話視窗開啟與關閉
 function popupChatToggle() {
-    let popupChat = document.getElementById('popup-chat'+ chat );
+    let popupChat = document.getElementById('popup-chat' + chat);
     popupChat.classList.toggle('active');
 }
 
 function btnChatClickClose() {
-    let btn = document.getElementById('popup-chat'+ chat);
+    let btn = document.getElementById('popup-chat' + chat);
     btn.classList.toggle('close');
 }
 
