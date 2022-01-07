@@ -236,3 +236,26 @@ function btnChatClickClose() {
     let btn = document.getElementById('popup-chat'+ chat);
     btn.classList.toggle('close');
 }
+
+//完成對話選項後「加金錢」與「扣時間」
+function dayPass() {
+    count = 0;
+    day--;
+    document.getElementById('day').textContent = day;
+    if (day <= 0) {
+        showEndButton();
+    };
+}
+
+function studentRightAnswer() {
+    point = point + 100000;
+    document.getElementById('point').textContent = point;
+}
+
+
+//天數到達0時檢查分數並跳出結算按鈕
+
+let showEndButton = function () {
+    let end = document.getElementById('end-button');
+    end.classList.toggle('active');
+};
