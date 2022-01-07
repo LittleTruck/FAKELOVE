@@ -196,9 +196,11 @@ function showFish() {
 function showFishInfo(show, num) {
     let fishInfo = document.getElementById('popup-fishInfo');
     if (show) {
-        fishInfo.classList.toggle('active');
-        document.getElementById("fish-name").textContent = num;
-        document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
+        if (fishInfo.classList.value != 'active'){
+            fishInfo.classList.toggle('active');
+            document.getElementById("fish-name").textContent = num;
+            document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
+        }
     } else
         fishInfo.classList.remove('active');
 }
