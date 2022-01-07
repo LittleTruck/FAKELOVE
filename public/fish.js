@@ -130,6 +130,7 @@ function mouseClicked() {
 }
 
 //bait_move
+let i = -1;
 function bait_move() {
     
     if (keyIsDown(LEFT_ARROW)) { // left
