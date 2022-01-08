@@ -254,6 +254,7 @@ a{
 
 /*彈出視窗1-圖案調整大小位置*/
 #popup-chooseBait .content .baitrow img{
+    cursor: pointer;
     max-width: 80px;
 }
 
@@ -377,6 +378,8 @@ a{
     background-color: #D965EC;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 50px;
+    color:white;
+    cursor: pointer;
 }
 
 #popup-fishInfo .button-choose:hover{
@@ -394,6 +397,8 @@ a{
     background-color: #FF40B4;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 50px;
+    color:white;
+    cursor: pointer;
 }
 
 #popup-fishInfo .button-notChoose:hover{
@@ -488,6 +493,7 @@ padding-top: 15%;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 50px;
     align-items: center;
+    cursor: pointer;
 }
 
 .popup-chat .button-choose1:hover{
@@ -506,6 +512,7 @@ padding-top: 15%;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 50px;
     align-items: center;
+    cursor: pointer;
 }
 
 .popup-chat .button-choose2:hover{
@@ -524,6 +531,7 @@ padding-top: 15%;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 50px;
     align-items: center;
+    cursor: pointer;
 }
 
 .popup-chat .button-choose3:hover{
