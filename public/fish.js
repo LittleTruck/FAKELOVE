@@ -160,15 +160,15 @@ function bait_move() {
         for (let i = 1; i < fishes.length; i++) {
             if (Bait.overlap(fishes[i])) {
                 if (count == 0) {
-                    
+
                     chat = Math.floor(Math.random() * 2);
-                    if(chat != lastchat){
+                    if (chat != lastchat) {
                         popupChatToggle();
-                        console.log('釣到'+chat);
-                        lastchat=chat;
+                        console.log('釣到' + chat);
+                        lastchat = chat;
                         count++;
                         break;
-                    }                   
+                    }
                     break;
                 }
                 break;
@@ -226,7 +226,8 @@ function showFishInfo(show, num) {
     let fishInfo = document.getElementById('popup-fishInfo');
     if (show) {
         fishInfo.classList.toggle('active');
-        document.getElementById("fish-name").textContent = num;
+        if (num < 3)
+            document.getElementById("fish-name").textContent = obj[num].name + num;
         document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
     } else {
         mouseClickX = false;
@@ -257,7 +258,8 @@ function dayPass() {
     document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
-    };
+    }
+    ;
 }
 
 function studentRightAnswer() {
@@ -272,3 +274,5 @@ let showEndButton = function () {
     let end = document.getElementById('end-button');
     end.classList.toggle('active');
 };
+
+const obj = JSON.parse('[{"name":"蘇晴","gender":"女","age":"40y","job":"護理師","status":"離婚"},{"name":"張家榮","gender":"男","age":"45y","job":"傳統罐頭加工廠老闆","status":"喪偶"},{"name":"陳欣萍","gender":"女","age":"37y","job":"外商公司主管","status":"丈夫劈腿"}]');
