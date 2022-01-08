@@ -34,7 +34,7 @@ function preload() {
     sex = loadImage('images/chooseBait/sex_hover.png');
 
     // fish
-    for (let i = 1; i < 23; i++) {
+    for (let i = 1; i < 16; i++) {
         // x: 100~1350, y: 250~550
         Fish(getRandom(100, 1350), getRandom(250, 550), i);
     }
@@ -47,7 +47,7 @@ function setup() {
     document.getElementById('day').textContent = day;
 
     // fish
-    for (let i = 1; i < 23; i++) {
+    for (let i = 1; i < 16; i++) {
         const dir = Math.random() >= 0.5 ? 1 : -1;
         fishes[i].mirrorX(dir);
 
@@ -160,6 +160,7 @@ function bait_move() {
         for (let i = 1; i < fishes.length; i++) {
             if (Bait.overlap(fishes[i])) {
                 if (count == 0) {
+                    
                     chat = Math.floor(Math.random() * 2);
                     if(chat != lastchat){
                         popupChatToggle();
