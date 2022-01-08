@@ -339,6 +339,7 @@ a{
     border-radius: 50px;
     visibility: hidden;
     font-family: 'GenSenRounded';
+    font-size: 20px;
 }
 
 #popup-fishInfo.active{
@@ -373,16 +374,16 @@ a{
 
 #popup-fishInfo .button-choose{
     position: relative;
+    left:20%;
     display:inline-flex;
     font-size: 20px;
     padding: 15px 70px;
-    margin-bottom: 10px;
     background-color: #D965EC;
     border: 5px rgb(255, 255, 255) solid;
     border-radius: 50px;
     color:white;
     cursor: pointer;
-    font-family: 'GenSenRounded'
+    font-family: 'GenSenRounded';
 }
 
 #popup-fishInfo .button-choose:hover{
@@ -452,11 +453,11 @@ a{
 
 .popup-chat .chat-row1{
 
-    padding-bottom: 70px;
+    padding-bottom: 20px;
 }
 .popup-chat .chat-row2{
     padding-left: 20px;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
 }
 
 .popup-chat .chat-row2 .chatBar{
