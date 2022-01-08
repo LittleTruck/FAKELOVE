@@ -13,6 +13,11 @@ let i = -1;
 let chat;
 let count = 0;
 let lastchat;
+let currentBait = "";
+
+const objstudent = JSON.parse('[{"name":"張夢琦","gender":"女","age":"19y","job":"大一","status":"單身，有部分存款"},{"name":"林如萱","gender":"女","age":"19y","job":"大三","status":"單身，在還學貸"},{"name":"陳曼靜","gender":"女","age":"19y","job":"大三","status":"剛分手"},{"name":"張紫山","gender":"女","age":"20y","job":"大二","status":"在與喜歡的男生曖昧中"},{"name":"陳昊軒","gender":"男","age":"20y","job":"大二","status":"剛分手，一週有5天時間在兼職"},{"name":"林雲凱","gender":"男","age":"21y","job":"大三","status":"單身，有部分存款"},{"name":"張豪哲","gender":"男","age":"22y","job":"大四","status":"因為忙畢業論文而與女友分手"}]');
+const objlove = JSON.parse('[{"name":"蘇晴","gender":"女","age":"40y","job":"護理師","status":"離婚，有一個4歲的兒子"},{"name":"張家榮","gender":"男","age":"45y","job":"傳統罐頭加工廠老闆","status":"喪偶，有兩個分別為12、9歲的女兒"},{"name":"陳欣萍","gender":"女","age":"37y","job":"外商公司主管","status":"丈夫劈腿，打離婚官司中"}]');
+const objsex = JSON.parse('[{"name":"林宇彤","gender":"女","age":"25y","job":"小學老師","status":"與交往3年的男友遠距離"},{"name":"王家樂","gender":"男","age":"20y","job":"學生","status":"與高中交往5年的女友遠距離"},{"name":"曾禹妮","gender":"女","age":"28y","job":"小公司的行政助理","status":"新婚，但丈夫在國外工作"},{"name":"魏俊豪","gender":"男","age":"30y","job":"醫生","status":"已婚5年，這2年獨自一人在美國進修，妻小都在台灣"},{"name":"徐芷","gender":"=女","age":"33y","job":"廚師","status":"與交往7年的男友因為遠距離遲遲無法結婚"}]');
 
 function preload() {
     boat = createSprite(200, 120);
@@ -199,7 +204,6 @@ function btnClickClose() {
 }
 
 //彈窗功能-紀錄選擇的魚餌類型
-let currentBait = "";
 
 function setBaitToLove() {
     currentBait = "love";
@@ -226,8 +230,26 @@ function showFishInfo(show, num) {
     let fishInfo = document.getElementById('popup-fishInfo');
     if (show) {
         fishInfo.classList.toggle('active');
-        if (num < 3)
-            document.getElementById("fish-name").textContent = obj[num].name + num;
+        console.log(num);
+        if (num <= 7){
+            document.getElementById("fish-name").textContent = objstudent[num-1].name + num;
+            document.getElementById("fish-gender").textContent = objstudent[num-1].gender;
+            document.getElementById("fish-age").textContent = objstudent[num-1].age;
+            document.getElementById("fish-job").textContent = objstudent[num-1].job;
+            document.getElementById("fish-status").textContent = objstudent[num-1].status;
+        }else if (num > 7 && num <= 10){
+            document.getElementById("fish-name").textContent = objlove[num-8].name + num;
+            document.getElementById("fish-gender").textContent = objlove[num-8].gender;
+            document.getElementById("fish-age").textContent = objlove[num-8].age;
+            document.getElementById("fish-job").textContent = objlove[num-8].job;
+            document.getElementById("fish-status").textContent = objlove[num-8].status;
+        }else {
+            document.getElementById("fish-name").textContent = objsex[num-11].name + num;
+            document.getElementById("fish-gender").textContent = objsex[num-11].gender;
+            document.getElementById("fish-age").textContent = objsex[num-11].age;
+            document.getElementById("fish-job").textContent = objsex[num-11].job;
+            document.getElementById("fish-status").textContent = objsex[num-11].status;
+        }
         document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
     } else {
         mouseClickX = false;
@@ -275,4 +297,3 @@ let showEndButton = function () {
     end.classList.toggle('active');
 };
 
-const obj = JSON.parse('[{"name":"蘇晴","gender":"女","age":"40y","job":"護理師","status":"離婚"},{"name":"張家榮","gender":"男","age":"45y","job":"傳統罐頭加工廠老闆","status":"喪偶"},{"name":"陳欣萍","gender":"女","age":"37y","job":"外商公司主管","status":"丈夫劈腿"}]');
