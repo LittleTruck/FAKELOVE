@@ -45,8 +45,13 @@ a{
     align-items: center;
 }
 
-.index-title {
-    font-size: 108px;
+.end-title {
+    font-size: 50px;
+    font-family: 'GenSenRounded' ;
+    width:100%;
+    text-align: center;
+    margin-bottom: 5%;
+
 }
 .index-subtitle {
     font-size: 80px;
