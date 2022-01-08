@@ -6,7 +6,7 @@
 }
 @font-face {
     font-family: 'GenSenRounded';
-    src: url('../assets/fonts/GenSenRounded-M.ttc');
+    src: url('../assets/fonts/GenSenRounded-R.ttc');
 }
 
 html,body {
@@ -338,6 +338,7 @@ a{
     transition: 0.5s;
     border-radius: 50px;
     visibility: hidden;
+    font-family: 'GenSenRounded';
 }
 
 #popup-fishInfo.active{
@@ -360,6 +361,7 @@ a{
 #popup-fishInfo .fishInfo-row3{
     padding-top: 30px;
     padding-left: 50px;
+    
 
 }
 
@@ -380,6 +382,7 @@ a{
     border-radius: 50px;
     color:white;
     cursor: pointer;
+    font-family: 'GenSenRounded'
 }
 
 #popup-fishInfo .button-choose:hover{
@@ -399,6 +402,7 @@ a{
     border-radius: 50px;
     color:white;
     cursor: pointer;
+    font-family: 'GenSenRounded'
 }
 
 #popup-fishInfo .button-notChoose:hover{
@@ -421,11 +425,12 @@ a{
     background: rgb(103,63,214);
     border: 5px rgb(255, 255, 255) solid;
     width: 550px;
-    padding: 80px 50px;
+    padding: 15px 50px;
     box-shadow: 0 15px 30px rgb(0,0,0,0.8);
     transition: 0.5s;
     border-radius: 50px;
     visibility: hidden;
+    font-family: 'GenSenRounded';
 }
 
 .popup-chat.active{
