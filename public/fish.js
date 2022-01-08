@@ -285,7 +285,7 @@ function popupChatToggle(show, num) {
         }
     } else {
         // num: chose answer
-        if (num <= 7) {
+        if (currentChatNum <= 7) {
             if (chatStudent[currentChatNum - 1].right == num)
                 studentRightAnswer();
             else
