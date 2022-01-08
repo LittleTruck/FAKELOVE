@@ -19,6 +19,10 @@ const objstudent = JSON.parse('[{"name":"張夢琦","gender":"女","age":"19y","
 const objlove = JSON.parse('[{"name":"蘇晴","gender":"女","age":"40y","job":"護理師","status":"離婚，有一個4歲的兒子"},{"name":"張家榮","gender":"男","age":"45y","job":"傳統罐頭加工廠老闆","status":"喪偶，有兩個分別為12、9歲的女兒"},{"name":"陳欣萍","gender":"女","age":"37y","job":"外商公司主管","status":"丈夫劈腿，打離婚官司中"}]');
 const objsex = JSON.parse('[{"name":"林宇彤","gender":"女","age":"25y","job":"小學老師","status":"與交往3年的男友遠距離"},{"name":"王家樂","gender":"男","age":"20y","job":"學生","status":"與高中交往5年的女友遠距離"},{"name":"曾禹妮","gender":"女","age":"28y","job":"小公司的行政助理","status":"新婚，但丈夫在國外工作"},{"name":"魏俊豪","gender":"男","age":"30y","job":"醫生","status":"已婚5年，這2年獨自一人在美國進修，妻小都在台灣"},{"name":"徐芷","gender":"=女","age":"33y","job":"廚師","status":"與交往7年的男友因為遠距離遲遲無法結婚"}]');
 
+const chatStudent = JSON.parse('[{"question":"我好想投資啊，但是卻無從下手","reply1":"投資就那你跟著我好了","reply2":"我也不知道怎麼投，好苦惱","reply3":"我從小就在國外讀書，讀的是經濟學，如果你有什麼理財或者投資的問題都可以來問我。"},{"question":"我最近在打工，特別忙，還是要還學貸。","reply1":"我也是，快累死了","reply2":"你要不要和我一起投資，可以掙錢","reply3":"我也是，不僅要讀書還要打工，特別累。但是我看我朋友最近在投資，感覺掙很多"},{"question":"我的生活費真的好少，都不能買自己想要的東西。","reply1":"努力打工吧，實現財務自由","reply2":"你要不要試試看投資，聽說可以掙錢","reply3":"我也是，我真的好羨慕我在做投資的同學啊，看他們天天吃香喝辣，好像有畫不完的錢"}]');
+const chatLove = JSON.parse('');
+const chatSex = JSON.parse('');
+
 function preload() {
     boat = createSprite(200, 120);
     boat.addImage('boat', loadImage('images/boat/boatv2_00000.png'));
@@ -109,7 +113,6 @@ function draw() {
     for (let i = 1; i < fishes.length; i++) {
         var d = dist(mouseClickX, mouseClickY, fishes[i].position.x, fishes[i].position.y);
         if (d < 15) {
-            console.log(mouseClickX);
             showFishInfo(true, i);
         }
 
@@ -138,7 +141,6 @@ function mouseClicked() {
     let fishInfo = document.getElementById('popup-fishInfo');
     if (fishInfo.classList.value == 'active') {
     } else {
-        console.log(mouseClickX);
         mouseClickX = mouseX;
         mouseClickY = mouseY;
     }
@@ -168,7 +170,7 @@ function bait_move() {
 
                     chat = Math.floor(Math.random() * 2);
                     if (chat != lastchat) {
-                        popupChatToggle();
+                        popupChatToggle(true, i);
                         console.log('釣到' + chat);
                         lastchat = chat;
                         count++;
@@ -231,24 +233,24 @@ function showFishInfo(show, num) {
     if (show) {
         fishInfo.classList.toggle('active');
         console.log(num);
-        if (num <= 7){
-            document.getElementById("fish-name").textContent = objstudent[num-1].name + num;
-            document.getElementById("fish-gender").textContent = objstudent[num-1].gender;
-            document.getElementById("fish-age").textContent = objstudent[num-1].age;
-            document.getElementById("fish-job").textContent = objstudent[num-1].job;
-            document.getElementById("fish-status").textContent = objstudent[num-1].status;
-        }else if (num > 7 && num <= 10){
-            document.getElementById("fish-name").textContent = objlove[num-8].name + num;
-            document.getElementById("fish-gender").textContent = objlove[num-8].gender;
-            document.getElementById("fish-age").textContent = objlove[num-8].age;
-            document.getElementById("fish-job").textContent = objlove[num-8].job;
-            document.getElementById("fish-status").textContent = objlove[num-8].status;
-        }else {
-            document.getElementById("fish-name").textContent = objsex[num-11].name + num;
-            document.getElementById("fish-gender").textContent = objsex[num-11].gender;
-            document.getElementById("fish-age").textContent = objsex[num-11].age;
-            document.getElementById("fish-job").textContent = objsex[num-11].job;
-            document.getElementById("fish-status").textContent = objsex[num-11].status;
+        if (num <= 7) {
+            document.getElementById("fish-name").textContent = objstudent[num - 1].name + num;
+            document.getElementById("fish-gender").textContent = objstudent[num - 1].gender;
+            document.getElementById("fish-age").textContent = objstudent[num - 1].age;
+            document.getElementById("fish-job").textContent = objstudent[num - 1].job;
+            document.getElementById("fish-status").textContent = objstudent[num - 1].status;
+        } else if (num > 7 && num <= 10) {
+            document.getElementById("fish-name").textContent = objlove[num - 8].name + num;
+            document.getElementById("fish-gender").textContent = objlove[num - 8].gender;
+            document.getElementById("fish-age").textContent = objlove[num - 8].age;
+            document.getElementById("fish-job").textContent = objlove[num - 8].job;
+            document.getElementById("fish-status").textContent = objlove[num - 8].status;
+        } else {
+            document.getElementById("fish-name").textContent = objsex[num - 11].name + num;
+            document.getElementById("fish-gender").textContent = objsex[num - 11].gender;
+            document.getElementById("fish-age").textContent = objsex[num - 11].age;
+            document.getElementById("fish-job").textContent = objsex[num - 11].job;
+            document.getElementById("fish-status").textContent = objsex[num - 11].status;
         }
         document.getElementById("fish-img").src = 'images/fishInfo/fish (' + num + ').png';
     } else {
@@ -263,15 +265,30 @@ function getRandom(min, max) {
 }
 
 //對話視窗開啟與關閉
-function popupChatToggle() {
-    let popupChat = document.getElementById('popup-chat' + chat);
-    popupChat.classList.toggle('active');
+function popupChatToggle(show, num) {
+    let popupChat = document.getElementById('popup-chat');
+    if (show) {
+        popupChat.classList.toggle('active');
+        if (num <= 7) {
+            document.getElementById("chat-name").textContent = objstudent[num - 1].name;
+            document.getElementById("chat-question").textContent = chatStudent[num - 1].question;
+            document.getElementById("chat-reply-1").textContent = chatStudent[num - 1].reply1;
+            document.getElementById("chat-reply-2").textContent = chatStudent[num - 1].reply2;
+            document.getElementById("chat-reply-3").textContent = chatStudent[num - 1].reply3;
+        } else if (num > 7 && num <= 10) {
+            
+        } else {
+            
+        }
+    } else {
+        popupChat.classList.remove('active');
+    }
 }
 
-function btnChatClickClose() {
-    let btn = document.getElementById('popup-chat' + chat);
-    btn.classList.toggle('close');
-}
+// function btnChatClickClose() {
+//     let btn = document.getElementById('popup-chat' + chat);
+//     btn.classList.toggle('close');
+// }
 
 //完成對話選項後「加金錢」與「扣時間」
 function dayPass() {
@@ -286,9 +303,14 @@ function dayPass() {
 
 function studentRightAnswer() {
     point = point + 100000;
+    alert("Right!");
     document.getElementById('point').textContent = point;
 }
 
+function wrongAnswer() {
+    alert("Wrong!");
+    document.getElementById('point').textContent = point;
+}
 
 //天數到達0時檢查分數並跳出結算按鈕
 

@@ -13,180 +13,181 @@
 
 <body>
 
-    <div class="wrapper" id="wrapper">
-        <div class="fish-point">money&ensp;<span id="point"></span> </div>
-        <div class="fish-day">day&ensp;<span id="day"></span> </div>
-        <canvas id="defaultCanvas0" class="p5Canvas"></canvas>
-        <div>
-            <!--彈出視窗1（選魚餌）-->
-            <a class="start-fish-button" onclick="popupToggle();btnClickClose();" id="start-fish-button">Choose bait</a>
-            <div id="popup-chooseBait">
-                <div class="content">
-                    <div class="popup-title1">
-                        <h1>請選擇適合的魚餌</h1>
-                    </div>
-                    <div class="baitrow">
-                        <a class="love-button" onclick="popupToggle();setBaitToLove();"><img class="love"
-                                src="images/chooseBait/love.png"></a>
-                        <a class="money-button" onclick="popupToggle();setBaitToMoney();"><img class="money"
-                                src="images/chooseBait/money.png"> </a>
-                        <a class="sex-button" onclick="popupToggle();setBaitToSex();"><img class="sex"
-                                src="images/chooseBait/sex.png"></a>
-                    </div>
+<div class="wrapper" id="wrapper">
+    <div class="fish-point">money&ensp;<span id="point"></span></div>
+    <div class="fish-day">day&ensp;<span id="day"></span></div>
+    <canvas class="p5Canvas" id="defaultCanvas0"></canvas>
+    <div>
+        <!--彈出視窗1（選魚餌）-->
+        <a class="start-fish-button" id="start-fish-button" onclick="popupToggle();btnClickClose();">Choose bait</a>
+        <div id="popup-chooseBait">
+            <div class="content">
+                <div class="popup-title1">
+                    <h1>請選擇適合的魚餌</h1>
+                </div>
+                <div class="baitrow">
+                    <a class="love-button" onclick="popupToggle();setBaitToLove();"><img class="love"
+                                                                                         src="images/chooseBait/love.png"></a>
+                    <a class="money-button" onclick="popupToggle();setBaitToMoney();"><img class="money"
+                                                                                           src="images/chooseBait/money.png">
+                    </a>
+                    <a class="sex-button" onclick="popupToggle();setBaitToSex();"><img class="sex"
+                                                                                       src="images/chooseBait/sex.png"></a>
+                </div>
 
-                    <div class="bait-text">
-                        <img class="love-text" src="images/chooseBait/lovetext.png">
-                        <img class="money-text" src="images/chooseBait/moneytext.png">
-                        <img class="sex-text" src="images/chooseBait/sextext.png">
-                    </div>
+                <div class="bait-text">
+                    <img class="love-text" src="images/chooseBait/lovetext.png">
+                    <img class="money-text" src="images/chooseBait/moneytext.png">
+                    <img class="sex-text" src="images/chooseBait/sextext.png">
                 </div>
             </div>
-
-            <!--魚-->
-            <div id="fish">
-<!--                <a class="fish1-button" onclick="showFishInfo();"><img class="fish1" src="images/fish/1.png"></a>-->
-                <div id="popup-fishInfo">
-                    <div class="content">
-                        <div class="fishInfo-row1">
-                            <div class="fishInfo-row1-col1">
-                                <img id="fish-img" class="fishInfo-picture">
-                                <h3 style="padding-left: 50px;"><span id="fish-name"></span></h3>
-                            </div>
-                        </div>
-
-                        <div class="fishInfo-row2">
-                            <h4 >性別：<span id="fish-gender"></span></h4>
-                            <h4 >年齡：<span id="fish-age"></span></h4>
-                            <h4 >職業：<span id="fish-job"></span></h4>
-                            <h4>感情狀況：<br><span id="fish-status"></span></h4>
-                        </div>
-                    </div>
-                   <div class="fishInfo-row3">
-                        <button class="button-choose" onclick="showFishInfo(false);popupChatToggle()" ;>取消</button>
-                        <!-- <button class="button-notChoose" onclick="showFishInfo(false);">不釣</button> -->
-                    </div>
-                </div>
-            </div>
-
-            <!--對話彈窗-學生-->
-            <div id="popup-chat0" class='popup-chat'>
-                <h1 style="padding-left: 41%; padding-bottom:40px;">林雲凱</h1>
-                <div class="content">
-
-                    <div class="chat-row1">
-                        <div class="chat-row1-col1">
-                            <img class="chat-picture" src="images/fishInfo/fish (1).png"; style="max-width:90px";>
-                        </div>
-                    </div>
-
-                    <div class="chat-row2">
-                        <div class="chatBar">
-                            <h5 style="color: black;">我好想投資啊，但是卻無從下手...</h5>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="content">
-                    <div class="chat-row3">
-                        <div class="chat-row1-col2">
-                            <h2 class="chooseAns">請選擇回應</h2>
-                        </div>
-                    </div>
-
-                    <div class="chat-row4">
-                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">
-                            <p>投資就那你跟著我好了</p>
-                        </a>
-                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">
-                            <p>我也不知道怎麼投，好苦惱</p>
-                        </a>
-                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer();">
-                            <p>我從小就在國外讀書，讀的是經濟學，</br>如果你有什麼理財或者投資的問題都可以來問我。</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="popup-chat1" class='popup-chat'>
-                <h1 style="padding-left: 41%; padding-bottom:40px;">張夢琦</h1>
-                <div class="content">
-
-                    <div class="chat-row1">
-                        <div class="chat-row1-col1">
-                            <img class="chat-picture" src="images/fishInfo/fish (2).png"; style="max-width:90px";>
-                        </div>
-                    </div>
-
-                    <div class="chat-row2">
-                        <div class="chatBar">
-                            <h5 style="color: black;">我最近在打工，特別忙，還是要還學貸。</h5>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="content">
-                    <div class="chat-row3">
-                        <div class="chat-row1-col2">
-                            <h2 class="chooseAns">請選擇回應</h2>
-                        </div>
-                    </div>
-
-                    <div class="chat-row4">
-                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">
-                            <p>我也是，快累死了</p>
-                        </a>
-                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">
-                            <p>你要不要和我一起投資，可以賺錢</p>
-                        </a>
-                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer()">
-                            <p>我也是，不僅要讀書還要打工，特別累。</br>但是我看我朋友最近在投資，感覺賺很多</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="popup-chatsex0" class='popup-chat'>
-                <h1 style="padding-left: 41%; padding-bottom:40px;">曾禹妮</h1>
-                <div class="content">
-
-                    <div class="chat-row1">
-                        <div class="chat-row1-col1">
-                            <img class="chat-picture" src="images/fishInfo/fish (4).png"; style="max-width:90px";>
-                        </div>
-                    </div>
-
-                    <div class="chat-row2">
-                        <div class="chatBar">
-                            <h5 style="color: black;">哥哥，我有黑絲，你看嗎。</h5>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="content">
-                    <div class="chat-row3">
-                        <div class="chat-row1-col2">
-                            <h2 class="chooseAns">請選擇回應</h2>
-                        </div>
-                    </div>
-
-                    <div class="chat-row4">
-                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">
-                            <p>剛聊天就這麼刺激的嗎</p>
-                        </a>
-                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">
-                            <p>想看</p>
-                        </a>
-                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer();">
-                            <p>寶貝，我可以拿我的大鵰和你交換嗎。</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!--離開按鈕-->
-            <a class="end-button" id="end-button" href="/end.html">END >>></a>
         </div>
+
+        <!--魚-->
+        <div id="fish">
+            <!--                <a class="fish1-button" onclick="showFishInfo();"><img class="fish1" src="images/fish/1.png"></a>-->
+            <div id="popup-fishInfo">
+                <div class="content">
+                    <div class="fishInfo-row1">
+                        <div class="fishInfo-row1-col1">
+                            <img class="fishInfo-picture" id="fish-img">
+                            <h3 style="padding-left: 50px;"><span id="fish-name"></span></h3>
+                        </div>
+                    </div>
+
+                    <div class="fishInfo-row2">
+                        <h4>性別：<span id="fish-gender"></span></h4>
+                        <h4>年齡：<span id="fish-age"></span></h4>
+                        <h4>職業：<span id="fish-job"></span></h4>
+                        <h4>感情狀況：<br><span id="fish-status"></span></h4>
+                    </div>
+                </div>
+                <div class="fishInfo-row3">
+                    <button ; class="button-choose" onclick="showFishInfo(false);">取消</button>
+                    <!-- <button class="button-notChoose" onclick="showFishInfo(false);">不釣</button> -->
+                </div>
+            </div>
+        </div>
+
+        <!--對話彈窗-學生-->
+        <div class='popup-chat' id="popup-chat">
+            <h1 style="padding-left: 41%; padding-bottom:40px;"><span id="chat-name"></span></h1>
+            <div class="content">
+
+                <div class="chat-row1">
+                    <div class="chat-row1-col1">
+                        <img ; ; class="chat-picture" src="images/fishInfo/fish (1).png" style="max-width:90px">
+                    </div>
+                </div>
+
+                <div class="chat-row2">
+                    <div class="chatBar">
+                        <h5 style="color: black;"><span id="chat-question"></span></h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content">
+                <div class="chat-row3">
+                    <div class="chat-row1-col2">
+                        <h2 class="chooseAns">請選擇回應</h2>
+                    </div>
+                </div>
+
+                <div class="chat-row4">
+                    <a class="button-choose1" onclick="popupChatToggle(false);dayPass();wrongAnswer();">
+                        <p><span id="chat-reply-1"></span></p>
+                    </a>
+                    <a class="button-choose2" onclick="popupChatToggle(false);dayPass();wrongAnswer();">
+                        <p><span id="chat-reply-2"></span></p>
+                    </a>
+                    <a class="button-choose3" onclick="popupChatToggle(false);dayPass();studentRightAnswer();">
+                        <p><span id="chat-reply-3"></span></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--            <div id="popup-chat1" class='popup-chat'>-->
+        <!--                <h1 style="padding-left: 41%; padding-bottom:40px;">張夢琦</h1>-->
+        <!--                <div class="content">-->
+
+        <!--                    <div class="chat-row1">-->
+        <!--                        <div class="chat-row1-col1">-->
+        <!--                            <img class="chat-picture" src="images/fishInfo/fish (2).png"; style="max-width:90px";>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="chat-row2">-->
+        <!--                        <div class="chatBar">-->
+        <!--                            <h5 style="color: black;">我最近在打工，特別忙，還是要還學貸。</h5>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                </div>-->
+        <!--                <div class="content">-->
+        <!--                    <div class="chat-row3">-->
+        <!--                        <div class="chat-row1-col2">-->
+        <!--                            <h2 class="chooseAns">請選擇回應</h2>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="chat-row4">-->
+        <!--                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">-->
+        <!--                            <p>我也是，快累死了</p>-->
+        <!--                        </a>-->
+        <!--                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">-->
+        <!--                            <p>你要不要和我一起投資，可以賺錢</p>-->
+        <!--                        </a>-->
+        <!--                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer()">-->
+        <!--                            <p>我也是，不僅要讀書還要打工，特別累。</br>但是我看我朋友最近在投資，感覺賺很多</p>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+
+        <!--            <div id="popup-chatsex0" class='popup-chat'>-->
+        <!--                <h1 style="padding-left: 41%; padding-bottom:40px;">曾禹妮</h1>-->
+        <!--                <div class="content">-->
+
+        <!--                    <div class="chat-row1">-->
+        <!--                        <div class="chat-row1-col1">-->
+        <!--                            <img class="chat-picture" src="images/fishInfo/fish (4).png"; style="max-width:90px";>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="chat-row2">-->
+        <!--                        <div class="chatBar">-->
+        <!--                            <h5 style="color: black;">哥哥，我有黑絲，你看嗎。</h5>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                </div>-->
+        <!--                <div class="content">-->
+        <!--                    <div class="chat-row3">-->
+        <!--                        <div class="chat-row1-col2">-->
+        <!--                            <h2 class="chooseAns">請選擇回應</h2>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="chat-row4">-->
+        <!--                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">-->
+        <!--                            <p>剛聊天就這麼刺激的嗎</p>-->
+        <!--                        </a>-->
+        <!--                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">-->
+        <!--                            <p>想看</p>-->
+        <!--                        </a>-->
+        <!--                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer();">-->
+        <!--                            <p>寶貝，我可以拿我的大鵰和你交換嗎。</p>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+
+        <!--離開按鈕-->
+        <a class="end-button" href="/end.html" id="end-button">END >>></a>
     </div>
+</div>
 </body>
 
 </html>
