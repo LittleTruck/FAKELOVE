@@ -418,6 +418,7 @@ function rightAnswer(subDay, addPoint) {
     if (day <= 0) {
         showEndButton();
     }count = 0;
+    popupToggle();
 }
 
 function wrongAnswer() {
@@ -428,6 +429,7 @@ function wrongAnswer() {
     if (day <= 0) {
         showEndButton();
     }count = 0;
+    popupToggle();
 }
 
 //天數到達0時檢查分數並跳出結算按鈕
