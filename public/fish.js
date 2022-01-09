@@ -424,6 +424,7 @@ function wrongAnswer() {
     alert("Wrong!");
     day--;
     document.getElementById('point').textContent = point;
+    document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
     }count = 0;
