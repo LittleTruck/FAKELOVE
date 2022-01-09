@@ -10,18 +10,25 @@
 </head>
 
 <body>
-    <div class="wrapper" style="flex-direction: column;">
-        <div class="end-title">你總共詐騙獲得： <span id="score"></span></div>
-        <script>
-            let score = localStorage["id"];
-            document.getElementById('score').textContent = score;
-        </script>
-        <div>
-            <a class="start-button" href="/index.html" style="color:rgb(255, 255, 255);margin-left: 0%;">RESTART</a>
-        </div>
-    </div>
+<div class="wrapper" style="flex-direction: column;">
+    <div class="index-title" id="success" style="font-size: 85px">FISHING</div>
+    <br>
+    <div class="end-title">你總共詐騙獲得： <span id="score"></span></div>
+    <script>
+        let score = localStorage["id"];
+        if (score >= 1500000)
+            document.getElementById('success').textContent = "SUCCESS !!";
+        else
+            document.getElementById('success').textContent = "FAILED !!";
 
+        document.getElementById('score').textContent = score;
+    </script>
+    <div>
+        <a class="start-button" href="/index.html" style="color:rgb(255, 255, 255);margin-left: 0%;">RESTART</a>
     </div>
+</div>
+
+</div>
 </body>
 
 </html>
