@@ -11,7 +11,11 @@
 
 <body>
     <div class="wrapper" style="flex-direction: column;">
-        <div class="end-title">你總共詐騙獲得： </div>
+        <div class="end-title">你總共詐騙獲得： <span id="score"></span></div>
+        <script>
+            let score = localStorage["id"];
+            document.getElementById('score').textContent = score;
+        </script>
         <div>
             <a class="start-button" href="/index_real.html" style="color:rgb(255, 255, 255);margin-left: 0%;">RESTART</a>
         </div>
