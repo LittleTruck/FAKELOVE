@@ -83,7 +83,7 @@ function draw() {
     background(255, 85, 177);
 
     for (let i = 1; i <=6 ; i++) {
-        image(star[i], i*200 , 10+i*10);
+        image(star[i], i*180 , 10+i*10);
     }
 
     //sea
