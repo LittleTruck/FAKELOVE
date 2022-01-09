@@ -45,9 +45,9 @@ function preload() {
     sex = loadImage('images/chooseBait/sex_hover.png');
 
     //star
-    for (let i = 1; i <=6 ; i++) {
-        star[i]=loadImage('images/star/star'+i+'.png');
-        
+    for (let i = 1; i <= 6; i++) {
+        star[i] = loadImage('images/star/star' + i + '.png');
+
     }
 
     // fish
@@ -64,9 +64,9 @@ function setup() {
     document.getElementById('day').textContent = day;
 
     //star
-    for (let i = 1; i <=6 ; i++) {
-        star[i].width = star[i].width*0.5;
-        star[i].height = star[i].height*0.5;
+    for (let i = 1; i <= 6; i++) {
+        star[i].width = star[i].width * 0.5;
+        star[i].height = star[i].height * 0.5;
     }
 
     // fish
@@ -82,8 +82,8 @@ function setup() {
 function draw() {
     background(255, 85, 177);
 
-    for (let i = 1; i <=6 ; i++) {
-        image(star[i], i*200 , 10+i*10);
+    for (let i = 1; i <= 6; i++) {
+        image(star[i], i * 200, 10 + i * 10);
     }
 
     //sea
@@ -417,16 +417,22 @@ function rightAnswer(subDay, addPoint) {
     document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
-    }count = 0;
+    }
+    count = 0;
+    popupToggle();
 }
 
 function wrongAnswer() {
     alert("Wrong!");
     day--;
     document.getElementById('point').textContent = point;
+    document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
-    }count = 0;
+    }
+    count = 0;
+
+    popupToggle();  
 }
 
 //天數到達0時檢查分數並跳出結算按鈕
