@@ -253,19 +253,19 @@ function showFishInfo(show, num) {
     if (show) {
         fishInfo.classList.toggle('active');
         if (num <= 7) {
-            document.getElementById("fish-name").textContent = objstudent[num - 1].name + num;
+            document.getElementById("fish-name").textContent = objstudent[num - 1].name;
             document.getElementById("fish-gender").textContent = objstudent[num - 1].gender;
             document.getElementById("fish-age").textContent = objstudent[num - 1].age;
             document.getElementById("fish-job").textContent = objstudent[num - 1].job;
             document.getElementById("fish-status").textContent = objstudent[num - 1].status;
         } else if (num > 7 && num <= 10) {
-            document.getElementById("fish-name").textContent = objlove[num - 8].name + num;
+            document.getElementById("fish-name").textContent = objlove[num - 8].name;
             document.getElementById("fish-gender").textContent = objlove[num - 8].gender;
             document.getElementById("fish-age").textContent = objlove[num - 8].age;
             document.getElementById("fish-job").textContent = objlove[num - 8].job;
             document.getElementById("fish-status").textContent = objlove[num - 8].status;
         } else {
-            document.getElementById("fish-name").textContent = objsex[num - 11].name + num;
+            document.getElementById("fish-name").textContent = objsex[num - 11].name;
             document.getElementById("fish-gender").textContent = objsex[num - 11].gender;
             document.getElementById("fish-age").textContent = objsex[num - 11].age;
             document.getElementById("fish-job").textContent = objsex[num - 11].job;
@@ -336,7 +336,7 @@ function popupChatToggle(show, num, answer) {
         // console.log("answer" + answer);
         if (currentChatNum <= 7) {
             if (chatStudent[questionNum].right == answer)
-                rightAnswer();
+                rightAnswer(1, 100000);
             else
                 wrongAnswer();
 
@@ -350,7 +350,7 @@ function popupChatToggle(show, num, answer) {
         } else if (currentChatNum > 7 && currentChatNum <= 10) {
 
             if (chatLove[questionNum].right == answer)
-                rightAnswer();
+                rightAnswer(5, 1000000);
             else
                 wrongAnswer();
 
@@ -362,7 +362,7 @@ function popupChatToggle(show, num, answer) {
             }, 100);
         } else {
             if (chatSex[questionNum].right == answer)
-                rightAnswer();
+                rightAnswer(3, 500000);
             else
                 wrongAnswer();
 
@@ -383,24 +383,33 @@ function popupChatToggle(show, num, answer) {
 // }
 
 //完成對話選項後「加金錢」與「扣時間」
-function dayPass() {
-    count = 0;
-    day--;
+// function dayPass() {
+//     count = 0;
+//     day--;
+//     document.getElementById('day').textContent = day;
+//     if (day <= 0) {
+//         showEndButton();
+//     }
+// }
+
+function rightAnswer(subDay, addPoint) {
+    alert("Right!");
+    point += addPoint;
+    day -= subDay;
+    document.getElementById('point').textContent = point;
     document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
     }
 }
 
-function rightAnswer() {
-    point = point + 100000;
-    alert("Right!");
-    document.getElementById('point').textContent = point;
-}
-
 function wrongAnswer() {
     alert("Wrong!");
+    day--;
     document.getElementById('point').textContent = point;
+    if (day <= 0) {
+        showEndButton();
+    }
 }
 
 //天數到達0時檢查分數並跳出結算按鈕
