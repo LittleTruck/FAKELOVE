@@ -108,84 +108,21 @@
             </div>
         </div>
 
-        <!--            <div id="popup-chat1" class='popup-chat'>-->
-        <!--                <h1 style="padding-left: 41%; padding-bottom:40px;">張夢琦</h1>-->
-        <!--                <div class="content">-->
-
-        <!--                    <div class="chat-row1">-->
-        <!--                        <div class="chat-row1-col1">-->
-        <!--                            <img class="chat-picture" src="images/fishInfo/fish (2).png"; style="max-width:90px";>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-
-        <!--                    <div class="chat-row2">-->
-        <!--                        <div class="chatBar">-->
-        <!--                            <h5 style="color: black;">我最近在打工，特別忙，還是要還學貸。</h5>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-
-        <!--                </div>-->
-        <!--                <div class="content">-->
-        <!--                    <div class="chat-row3">-->
-        <!--                        <div class="chat-row1-col2">-->
-        <!--                            <h2 class="chooseAns">請選擇回應</h2>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-
-        <!--                    <div class="chat-row4">-->
-        <!--                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">-->
-        <!--                            <p>我也是，快累死了</p>-->
-        <!--                        </a>-->
-        <!--                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">-->
-        <!--                            <p>你要不要和我一起投資，可以賺錢</p>-->
-        <!--                        </a>-->
-        <!--                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer()">-->
-        <!--                            <p>我也是，不僅要讀書還要打工，特別累。</br>但是我看我朋友最近在投資，感覺賺很多</p>-->
-        <!--                        </a>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-
-        <!--            <div id="popup-chatsex0" class='popup-chat'>-->
-        <!--                <h1 style="padding-left: 41%; padding-bottom:40px;">曾禹妮</h1>-->
-        <!--                <div class="content">-->
-
-        <!--                    <div class="chat-row1">-->
-        <!--                        <div class="chat-row1-col1">-->
-        <!--                            <img class="chat-picture" src="images/fishInfo/fish (4).png"; style="max-width:90px";>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-
-        <!--                    <div class="chat-row2">-->
-        <!--                        <div class="chatBar">-->
-        <!--                            <h5 style="color: black;">哥哥，我有黑絲，你看嗎。</h5>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-
-        <!--                </div>-->
-        <!--                <div class="content">-->
-        <!--                    <div class="chat-row3">-->
-        <!--                        <div class="chat-row1-col2">-->
-        <!--                            <h2 class="chooseAns">請選擇回應</h2>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-
-        <!--                    <div class="chat-row4">-->
-        <!--                        <a class="button-choose1" onclick="btnChatClickClose();dayPass();">-->
-        <!--                            <p>剛聊天就這麼刺激的嗎</p>-->
-        <!--                        </a>-->
-        <!--                        <a class="button-choose2" onclick="btnChatClickClose();dayPass();">-->
-        <!--                            <p>想看</p>-->
-        <!--                        </a>-->
-        <!--                        <a class="button-choose3" onclick="btnChatClickClose();dayPass();studentRightAnswer();">-->
-        <!--                            <p>寶貝，我可以拿我的大鵰和你交換嗎。</p>-->
-        <!--                        </a>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-
-        <!--離開按鈕-->
-        <a class="end-button" href="/end.html" id="end-button">END >>></a>
+        <a class="end-button" id="end-button"> END >>></a>
+            <script>
+                let btn = document.getElementById('end-button');
+                btn.onclick = function (){
+                    console.log('click');
+                    if (window.localStorage) {
+                        console.log('support');
+                        localStorage.id = document.getElementById('point').textContent;
+                        console.log(localStorage);
+                        location.href = '/end.html';
+                    } else {
+                        alert('no support');
+                    }
+                };
+            </script>
     </div>
 </div>
 </body>
