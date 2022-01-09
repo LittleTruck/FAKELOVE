@@ -15,6 +15,7 @@ let count = 0;
 let lastchat;
 let currentBait = "";
 let currentChatNum;
+let star = [];
 
 const objstudent = JSON.parse('[{"name":"張夢琦","gender":"女","age":"19y","job":"大一","status":"單身，有部分存款"},{"name":"林如萱","gender":"女","age":"19y","job":"大三","status":"單身，在還學貸"},{"name":"陳曼靜","gender":"女","age":"19y","job":"大三","status":"剛分手"},{"name":"張紫山","gender":"女","age":"20y","job":"大二","status":"在與喜歡的男生曖昧中"},{"name":"陳昊軒","gender":"男","age":"20y","job":"大二","status":"剛分手，一週有5天時間在兼職"},{"name":"林雲凱","gender":"男","age":"21y","job":"大三","status":"單身，有部分存款"},{"name":"張豪哲","gender":"男","age":"22y","job":"大四","status":"因為忙畢業論文而與女友分手"}]');
 const objlove = JSON.parse('[{"name":"蘇晴","gender":"女","age":"40y","job":"護理師","status":"離婚，有一個4歲的兒子"},{"name":"張家榮","gender":"男","age":"45y","job":"傳統罐頭加工廠老闆","status":"喪偶，有兩個分別為12、9歲的女兒"},{"name":"陳欣萍","gender":"女","age":"37y","job":"外商公司主管","status":"丈夫劈腿，打離婚官司中"}]');
@@ -43,6 +44,12 @@ function preload() {
     money = loadImage('images/chooseBait/money_hover.png');
     sex = loadImage('images/chooseBait/sex_hover.png');
 
+    //star
+    for (let i = 1; i <=6 ; i++) {
+        star[i]=loadImage('images/star/star'+i+'.png');
+        
+    }
+
     // fish
     for (let i = 1; i < 16; i++) {
         // x: 100~1350, y: 250~550
@@ -56,6 +63,12 @@ function setup() {
     document.getElementById('point').textContent = point;
     document.getElementById('day').textContent = day;
 
+    //star
+    for (let i = 1; i <=6 ; i++) {
+        star[i].width = star[i].width*0.5;
+        star[i].height = star[i].height*0.5;
+    }
+
     // fish
     for (let i = 1; i < 16; i++) {
         const dir = Math.random() >= 0.5 ? 1 : -1;
@@ -68,6 +81,10 @@ function setup() {
 
 function draw() {
     background(255, 85, 177);
+
+    for (let i = 1; i <=6 ; i++) {
+        image(star[i], i*200 , 50+i*10);
+    }
 
     //sea
     let sea = new Rectangle();
@@ -400,8 +417,7 @@ function rightAnswer(subDay, addPoint) {
     document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
-    }
-    count = 0;
+    }count = 0;
 }
 
 function wrongAnswer() {
@@ -410,8 +426,7 @@ function wrongAnswer() {
     document.getElementById('point').textContent = point;
     if (day <= 0) {
         showEndButton();
-    }
-    count = 0;
+    }count = 0;
 }
 
 //天數到達0時檢查分數並跳出結算按鈕
@@ -420,4 +435,3 @@ let showEndButton = function () {
     let end = document.getElementById('end-button');
     end.classList.toggle('active');
 };
-
