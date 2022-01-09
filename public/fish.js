@@ -105,7 +105,10 @@ function draw() {
     } else { // no key press ‐> stand still
         boat.setVelocity(0, 0);
         Bait.setVelocity(0, 0);
-    }
+    }boat.onMousePressed= function(){
+        console.log('boat click');
+        popupToggle();
+    };
 
     //line
     stroke(255);
@@ -418,7 +421,6 @@ function rightAnswer(subDay, addPoint) {
     if (day <= 0) {
         showEndButton();
     }count = 0;
-    popupToggle();
 }
 
 function wrongAnswer() {
@@ -429,7 +431,6 @@ function wrongAnswer() {
     if (day <= 0) {
         showEndButton();
     }count = 0;
-    popupToggle();
 }
 
 //天數到達0時檢查分數並跳出結算按鈕
