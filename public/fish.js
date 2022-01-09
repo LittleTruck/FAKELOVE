@@ -99,15 +99,15 @@ function draw() {
     if (currentBait == "love") {
         Bait.addImage(love);
         Bait.scale = 0.08;
-        bait_move();
+        bait_move("love");
     } else if (currentBait == "money") {
         Bait.addImage(money);
         Bait.scale = 0.08;
-        bait_move();
+        bait_move("money");
     } else if (currentBait == "sex") {
         Bait.addImage(sex);
         Bait.scale = 0.08;
-        bait_move();
+        bait_move("sex");
     }
 
     // fish
@@ -148,7 +148,7 @@ function mouseClicked() {
 }
 
 //bait_move
-function bait_move() {
+function bait_move(bait) {
 
     if (keyIsDown(LEFT_ARROW)) { // left
         Bait.position.x = boat.position.x + 75;
@@ -159,27 +159,46 @@ function bait_move() {
         Bait.position.y = boat.position.y + 40;
 
     } else if (keyIsDown(DOWN_ARROW)) {
+        //釣魚動畫
         i = (i + 1) % 7;
         boat.changeImage('boat' + i);
         Bait.position.y = Bait.position.y + 20;
+
+        //線
         stroke(255);
         strokeWeight(3);
         line(Bait.position.x - 20, boat.position.y - 75, Bait.position.x, Bait.position.y);
+
+        //觸發對話框
         for (let i = 1; i < fishes.length; i++) {
             if (Bait.overlap(fishes[i])) {
-                if (count == 0) {
-                    chat = Math.floor(Math.random() * 2);
-                    if (chat != lastchat) {
-                        popupChatToggle(true, i);
-                        console.log('釣到' + chat);
-                        console.log('編號:' + i);
-                        lastchat = chat;
+                console.log(bait);
+                console.log('魚編號:' + i);
+                if (bait == "money" && i < 8) {
+                    if (count == 0) {
+                        chat = popupChatToggle(true, i);
+                        console.log('對話框' + chat);  //對話
+                        count++;
+                        break;
+                    }
+                    break;
+                } else if (bait == "love" && i <= 10 && i > 7) {
+                    if (count == 0) {
+                        chat = popupChatToggle(true, i);
+                        console.log('對話框' + chat);  //對話
+                        count++;
+                        break;
+                    }
+                    break;
+                } else if (bait == "sex" && i <= 15 && i > 10) {
+                    if (count == 0) {
+                        chat = popupChatToggle(true, i);
+                        console.log('對話框' + chat);  //對話
                         count++;
                         break;
                     }
                     break;
                 }
-                break;
             }
         }
     } else if (keyIsDown(UP_ARROW)) {
@@ -276,7 +295,6 @@ function popupChatToggle(show, num, answer) {
         document.getElementById("chat-img").src = 'images/fishInfo/fish (' + num + ').png';
         if (num <= 7) {
             questionNum = Math.floor(Math.random() * (chatStudent.length));
-
             // console.log("questionNum" + questionNum);
             // console.log(chatStudent);
 
@@ -310,6 +328,7 @@ function popupChatToggle(show, num, answer) {
             document.getElementById("chat-reply-2").textContent = chatSex[questionNum].reply2;
             document.getElementById("chat-reply-3").textContent = chatSex[questionNum].reply3;
         }
+        return questionNum;
     } else {
         // num: chose answer
         // console.log("questionNum" + questionNum);
