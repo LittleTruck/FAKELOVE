@@ -169,11 +169,11 @@ function bait_move() {
         for (let i = 1; i < fishes.length; i++) {
             if (Bait.overlap(fishes[i])) {
                 if (count == 0) {
-
                     chat = Math.floor(Math.random() * 2);
                     if (chat != lastchat) {
                         popupChatToggle(true, i);
                         console.log('釣到' + chat);
+                        console.log('編號:' + i);
                         lastchat = chat;
                         count++;
                         break;
@@ -272,6 +272,7 @@ function popupChatToggle(show, num) {
     let popupChat = document.getElementById('popup-chat');
     if (show) {
         popupChat.classList.toggle('active');
+        document.getElementById("chat-img").src = 'images/fishInfo/fish (' + num + ').png';
         if (num <= 7) {
             document.getElementById("chat-name").textContent = objstudent[num - 1].name;
             document.getElementById("chat-question").textContent = chatStudent[num - 1].question;
@@ -279,21 +280,35 @@ function popupChatToggle(show, num) {
             document.getElementById("chat-reply-2").textContent = chatStudent[num - 1].reply2;
             document.getElementById("chat-reply-3").textContent = chatStudent[num - 1].reply3;
         } else if (num > 7 && num <= 10) {
-
+            document.getElementById("chat-name").textContent = objlove[num - 8].name;
+            document.getElementById("chat-question").textContent = chatLove[num - 8].question;
+            document.getElementById("chat-reply-1").textContent = chatLove[num - 8].reply1;
+            document.getElementById("chat-reply-2").textContent = chatLove[num - 8].reply2;
+            document.getElementById("chat-reply-3").textContent = chatLove[num - 8].reply3;
         } else {
-
+            document.getElementById("chat-name").textContent = objsex[num - 11].name;
+            document.getElementById("chat-question").textContent = chatSex[num - 11].question;
+            document.getElementById("chat-reply-1").textContent = chatSex[num - 11].reply1;
+            document.getElementById("chat-reply-2").textContent = chatSex[num - 11].reply2;
+            document.getElementById("chat-reply-3").textContent = chatSex[num - 11].reply3;
         }
     } else {
         // num: chose answer
         if (currentChatNum <= 7) {
             if (chatStudent[currentChatNum - 1].right == num)
-                studentRightAnswer();
+                rightAnswer();
             else
                 wrongAnswer();
         } else if (num > 7 && num <= 10) {
-
+            if (chatLove[currentChatNum - 1].right == num)
+                rightAnswer();
+            else
+                wrongAnswer();
         } else {
-
+            if (chatSex[currentChatNum - 1].right == num)
+                rightAnswer();
+            else
+                wrongAnswer();
         }
         popupChat.classList.remove('active');
     }
@@ -314,7 +329,7 @@ function dayPass() {
     }
 }
 
-function studentRightAnswer() {
+function rightAnswer() {
     point = point + 100000;
     alert("Right!");
     document.getElementById('point').textContent = point;
