@@ -45,9 +45,9 @@ function preload() {
     sex = loadImage('images/chooseBait/sex_hover.png');
 
     //star
-    for (let i = 1; i <=6 ; i++) {
-        star[i]=loadImage('images/star/star'+i+'.png');
-        
+    for (let i = 1; i <= 6; i++) {
+        star[i] = loadImage('images/star/star' + i + '.png');
+
     }
 
     // fish
@@ -64,9 +64,9 @@ function setup() {
     document.getElementById('day').textContent = day;
 
     //star
-    for (let i = 1; i <=6 ; i++) {
-        star[i].width = star[i].width*0.5;
-        star[i].height = star[i].height*0.5;
+    for (let i = 1; i <= 6; i++) {
+        star[i].width = star[i].width * 0.5;
+        star[i].height = star[i].height * 0.5;
     }
 
     // fish
@@ -74,7 +74,7 @@ function setup() {
         const dir = Math.random() >= 0.5 ? 1 : -1;
         fishes[i].mirrorX(dir);
 
-        const velocity = dir == 1 ? getRandom(-1, -3) : getRandom(1, 3);
+        const velocity = dir == 1 ? getRandom(-1, -2) : getRandom(1, 2);
         fishes[i].setVelocity(velocity, 0);
     }
 }
@@ -82,8 +82,8 @@ function setup() {
 function draw() {
     background(255, 85, 177);
 
-    for (let i = 1; i <=6 ; i++) {
-        image(star[i], i*180 , 10+i*10);
+    for (let i = 1; i <= 6; i++) {
+        image(star[i], i * 180, 10 + i * 10);
     }
 
     //sea
@@ -105,7 +105,7 @@ function draw() {
     } else { // no key press ‐> stand still
         boat.setVelocity(0, 0);
         Bait.setVelocity(0, 0);
-    }boat.onMousePressed= function(){
+    } boat.onMousePressed = function () {
         console.log('boat click');
         popupToggle();
     };
@@ -197,7 +197,6 @@ function bait_move(bait) {
                 if (bait == "money" && i < 8) {
                     if (count == 0) {
                         chat = popupChatToggle(true, i);
-                        console.log('對話框' + chat);  //對話
                         count++;
                         break;
                     }
@@ -205,7 +204,6 @@ function bait_move(bait) {
                 } else if (bait == "love" && i <= 10 && i > 7) {
                     if (count == 0) {
                         chat = popupChatToggle(true, i);
-                        console.log('對話框' + chat);  //對話
                         count++;
                         break;
                     }
@@ -213,7 +211,6 @@ function bait_move(bait) {
                 } else if (bait == "sex" && i <= 15 && i > 10) {
                     if (count == 0) {
                         chat = popupChatToggle(true, i);
-                        console.log('對話框' + chat);  //對話
                         count++;
                         break;
                     }
@@ -355,9 +352,11 @@ function popupChatToggle(show, num, answer) {
         // console.log("currentChatNum" + currentChatNum);
         // console.log("answer" + answer);
         if (currentChatNum <= 7) {
-            if (chatStudent[questionNum].right == answer)
+            if (chatStudent[questionNum].right == answer) {
+                fishes[currentChatNum].remove();
+                console.log('魚編號:' + currentChatNum + 'remove');  //答對刪除魚
                 rightAnswer(1, 100000);
-            else
+            } else
                 wrongAnswer();
 
             // 刪掉出現過的對話
@@ -369,9 +368,11 @@ function popupChatToggle(show, num, answer) {
 
         } else if (currentChatNum > 7 && currentChatNum <= 10) {
 
-            if (chatLove[questionNum].right == answer)
+            if (chatLove[questionNum].right == answer) {
+                fishes[currentChatNum].remove();
+                console.log('魚編號:' + currentChatNum + 'remove');  //答對刪除魚
                 rightAnswer(5, 1000000);
-            else
+            } else
                 wrongAnswer();
 
             // 刪掉出現過的對話
@@ -381,8 +382,11 @@ function popupChatToggle(show, num, answer) {
                 chatLove.splice(questionNum, 1);
             }, 100);
         } else {
-            if (chatSex[questionNum].right == answer)
+            if (chatSex[questionNum].right == answer){
+                fishes[currentChatNum].remove();
+                console.log('魚編號:' + currentChatNum + 'remove');  //答對刪除魚
                 rightAnswer(3, 500000);
+            }                
             else
                 wrongAnswer();
 
@@ -420,7 +424,7 @@ function rightAnswer(subDay, addPoint) {
     document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
-    }count = 0;
+    } count = 0;
 }
 
 function wrongAnswer() {
@@ -430,7 +434,7 @@ function wrongAnswer() {
     document.getElementById('day').textContent = day;
     if (day <= 0) {
         showEndButton();
-    }count = 0;
+    } count = 0;
 }
 
 //天數到達0時檢查分數並跳出結算按鈕
